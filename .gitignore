@@ -41,9 +41,6 @@ slurm-*.err
 .DS_Store
 Thumbs.db
 
-# Splits (generated data)
-splits/
-
 # Misc
 *.tmp
 *.swp
