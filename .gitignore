@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Data, features (large files)
+data/
+features/
+outputs/
+results/
+
+# Logs
+logs/
+*.log
+slurm-*.out
+slurm-*.err
+*.out
+*.err
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Splits (generated data)
+splits/
+
+# Misc
+*.tmp
+*.swp
+*.swo
