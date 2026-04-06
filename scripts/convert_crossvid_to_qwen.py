@@ -2,60 +2,133 @@ import json
 import os
 import random
 
-QA_DIR = "/scratch/general/vast/u1209255/CrossVid_Dataset/QA"
+QA_DIR = "data/CrossVid_hf/QA"
 VIDEO_ROOT = "/scratch/general/vast/u1209255/CrossVid_Dataset/videos"
 
 SELECTED_FILES = ["NC", "CC", "PEA", "PI", "FSA", "PSS"]
 
-OUTPUT_ALL = "/scratch/general/vast/u1209255/qwen3vl_project/data/processed/all_6tasks.json"
-OUTPUT_TRAIN = "/scratch/general/vast/u1209255/qwen3vl_project/data/processed/train.json"
-OUTPUT_VAL = "/scratch/general/vast/u1209255/qwen3vl_project/data/processed/val.json"
-OUTPUT_TEST = "/scratch/general/vast/u1209255/qwen3vl_project/data/processed/test.json"
-OUTPUT_SAMPLE = "/scratch/general/vast/u1209255/qwen3vl_project/data/processed/sample_10.json"
+OUTPUT_ALL = "data/processed/all_6tasks.json"
+OUTPUT_SAMPLE = "data/processed/sample_10.json"
 
 SEED = 42
 
 
-def build_prompt(question, options, num_videos):
-    lines = []
-    for i in range(num_videos):
-        lines.append(f"Video {i+1}: <video>")
-
-    lines.append(question.strip())
-
-    if options:
-        lines.append("Choices:")
-        for opt in options:
-            lines.append(opt.strip())
-
-    return "\n".join(lines)
+def video_tags(num_videos):
+    return "\n".join(f"Video {i+1}: <video>" for i in range(num_videos))
 
 
-def convert_item(task_name, item):
-    raw_videos = item.get("videos", [])
-    abs_videos = [os.path.join(VIDEO_ROOT, v) for v in raw_videos]
-
-    prompt = build_prompt(
-        question=item.get("question", ""),
-        options=item.get("options", []),
-        num_videos=len(abs_videos),
-    )
-
-    new_item = {
-        "id": f"{task_name}_{item['id']}",
+def make_item(task_name, item_id, abs_videos, prompt, answer):
+    return {
+        "id": f"{task_name}_{item_id}",
         "video": abs_videos,
         "conversations": [
-            {
-                "from": "human",
-                "value": prompt
-            },
-            {
-                "from": "gpt",
-                "value": str(item.get("answer", "")).strip()
-            }
-        ]
+            {"from": "human", "value": prompt},
+            {"from": "gpt", "value": str(answer).strip()},
+        ],
     }
-    return new_item
+
+
+def convert_cc(task_name, item):
+    videos = [os.path.join(VIDEO_ROOT, v) for v in item["videos"]]
+    opts = "\n".join(o.strip() for o in item["options"])
+    prompt = (
+        f"{video_tags(len(videos))}\n"
+        "Provide you four videos and a single-choice question with only one correct option.\n"
+        "Watch the videos carefully, and think about the question based on the information from these videos.\n"
+        "Select one answer choice, and only output the capital letter of your choice.\n\n"
+        f"Question:\n{item['question'].strip()}\n\n"
+        f"Options:\n{opts}\n\n"
+        "Your answer:"
+    )
+    return make_item(task_name, item["id"], videos, prompt, item["answer"])
+
+
+def convert_nc(task_name, item):
+    videos = [os.path.join(VIDEO_ROOT, v) for v in item["videos"]]
+    opts = "\n".join(o.strip() for o in item["options"])
+    prompt = (
+        f"{video_tags(len(videos))}\n"
+        "Provide you four videos and a single-choice question with only one correct option.\n"
+        "Watch the videos carefully, and think about the question based on the information from the four videos.\n"
+        "Select one answer choice, and only output the capital letter of your choice.\n\n"
+        f"Question:\n{item['question'].strip()}\n\n"
+        f"Options:\n{opts}\n\n"
+        "Your answer:"
+    )
+    return make_item(task_name, item["id"], videos, prompt, item["answer"])
+
+
+def convert_pea(task_name, item):
+    videos = [os.path.join(VIDEO_ROOT, v) for v in item["videos"]]
+    opts = "\n".join(o.strip() for o in item["options"])
+    prompt = (
+        f"{video_tags(len(videos))}\n"
+        "Provide you three videos assembling the same toy car and a single-choice question.\n"
+        "In addition, provide you four predefined error types that may assist you answer.\n"
+        "- wrong order: this action is an ordering mistake.\n"
+        "- previous one is mistake: this action is also an ordering mistake but is caused by the preceding ordering mistakes in the context.\n"
+        "- shouldn't have happened: this action is unnecessary in the assembly.\n"
+        "- wrong position: the two parts are not attached at their correct position.\n"
+        "Watch the videos carefully, and think about the question based on the information from these videos.\n"
+        "Select one answer choice, and only output the capital letter of your choice.\n\n"
+        f"Question:\n{item['question'].strip()}\n\n"
+        f"Options:\n{opts}\n\n"
+        "Your answer:"
+    )
+    return make_item(task_name, item["id"], videos, prompt, item["answer"])
+
+
+def convert_pi(task_name, item):
+    video = os.path.join(VIDEO_ROOT, item["video"])
+    opts = "\n".join(o.strip() for o in item["options"])
+    prompt = (
+        f"Video 1: <video>\n"
+        "Provide you the beginning and the ending of a movie clip, what is most likely to happen in the middle?\n"
+        "Watch the video segments carefully, and think about the question based on the context information.\n"
+        "Select one answer choice, and only output the capital letter of your choice.\n\n"
+        f"Options:\n{opts}\n\n"
+        "Your answer:"
+    )
+    return make_item(task_name, item["id"], [video], prompt, item["answer"])
+
+
+def convert_fsa(task_name, item):
+    video_a = os.path.join(VIDEO_ROOT, item["video A"])
+    video_b = os.path.join(VIDEO_ROOT, item["video B"])
+    ref = item["ref_segment"]
+    prompt = (
+        f"{video_tags(2)}\n"
+        f"Provide you two cooking videos, which step in Video 2 is functionally equivalent to the step shown between {ref[0]}s and {ref[1]}s in Video 1?\n"
+        "Watch the two videos carefully, and think about the question based on the information of the two videos.\n"
+        'Only output a time interval in seconds and separate the beginning and ending time with a comma, e.g., "15,23".\n\n'
+        "Your answer:"
+    )
+    ans = item["answer"]
+    return make_item(task_name, item["id"], [video_a, video_b], prompt, f"{ans[0]},{ans[1]}")
+
+
+def convert_pss(task_name, item):
+    video = os.path.join(VIDEO_ROOT, item["video"])
+    segs = item["segments"]
+    n = len(segs)
+    prompt = (
+        f"Video 1: <video>\n"
+        f"Provide you {n} shuffled segments of a cooking video, what's the correct order of these segments?\n"
+        "Watch the segments carefully, and think about the question based on the relationship between these segments.\n"
+        'Only output the correct segment number sequence separated by "->", e.g., "2->3->1->4".\n\n'
+        "Your answer:"
+    )
+    return make_item(task_name, item["id"], [video], prompt, item["answer"])
+
+
+CONVERTERS = {
+    "CC": convert_cc,
+    "NC": convert_nc,
+    "PEA": convert_pea,
+    "PI": convert_pi,
+    "FSA": convert_fsa,
+    "PSS": convert_pss,
+}
 
 
 def load_and_convert():
@@ -66,10 +139,22 @@ def load_and_convert():
         with open(json_path, "r") as f:
             data = json.load(f)
 
-        print(f"[INFO] Loaded {task}: {len(data)} examples")
+        converter = CONVERTERS[task]
+        converted = [converter(task, item) for item in data]
 
-        for item in data:
-            all_data.append(convert_item(task, item))
+        # Deduplicate by (video, prompt, answer) — drop exact content duplicates
+        seen = set()
+        deduped = []
+        for item in converted:
+            key = (tuple(item["video"]), item["conversations"][0]["value"], item["conversations"][1]["value"])
+            if key not in seen:
+                seen.add(key)
+                deduped.append(item)
+        if len(deduped) < len(converted):
+            print(f"[INFO] {task}: {len(converted)} examples ({len(converted) - len(deduped)} duplicates removed)")
+        else:
+            print(f"[INFO] {task}: {len(converted)} examples")
+        all_data.extend(deduped)
 
     return all_data
 
@@ -105,13 +190,10 @@ def split_data(data, train_ratio=0.8, val_ratio=0.1):
 
 
 def main():
-    random.seed(SEED)
-
-    os.makedirs(os.path.dirname(OUTPUT_ALL), exist_ok=True)
+    os.makedirs("data/processed", exist_ok=True)
 
     all_data = load_and_convert()
-
-    print(f"[INFO] Total converted examples: {len(all_data)}")
+    print(f"[INFO] Total: {len(all_data)} examples")
 
     missing = validate_video_paths(all_data)
     print(f"[INFO] Missing video files: {len(missing)}")
@@ -122,13 +204,7 @@ def main():
 
     save_json(OUTPUT_ALL, all_data)
     save_json(OUTPUT_SAMPLE, all_data[:10])
-
-    train_data, val_data, test_data = split_data(all_data)
-    save_json(OUTPUT_TRAIN, train_data)
-    save_json(OUTPUT_VAL, val_data)
-    save_json(OUTPUT_TEST, test_data)
-
-    print("[DONE] Conversion finished.")
+    print("[DONE]")
 
 
 if __name__ == "__main__":

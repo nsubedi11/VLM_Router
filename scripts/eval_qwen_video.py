@@ -30,21 +30,54 @@ OUT_PATH = "results/qwen_video_eval.jsonl"
 RESIZED_HEIGHT = 480
 FPS = 1
 MAX_NEW_TOKENS = 96
-BATCH_SIZE = 4
-LIMIT = -1
+BATCH_SIZE = 1
+LIMIT = 20
 
 
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
 
-def extract_choice(texts):
-    extracted = []
-    for text in texts:
-        text = text.strip().upper()
-        m = re.search(r"\b([ABCD])\b", text)
-        extracted.append(m.group(1) if m else None)
-    return extracted
+def get_task(sample_id):
+    return sample_id.split("_")[0]
+
+
+def extract_pred(response, task):
+    """Extract the model prediction from a raw response string, task-aware."""
+    text = response.strip()
+    if task in ("CC", "NC", "PEA", "PI"):
+        # Single or multi-select letter (A-F)
+        letters = list(dict.fromkeys(re.findall(r"\b([A-F])\b", text.upper())))
+        return ",".join(sorted(letters)) if letters else None
+    elif task == "FSA":
+        # Time interval: expect "start,end" — extract first two numbers
+        nums = re.findall(r"\d+(?:\.\d+)?", text)
+        return f"{nums[0]},{nums[1]}" if len(nums) >= 2 else None
+    elif task == "PSS":
+        # Ordering: "2->3->1->4"
+        m = re.search(r"\d+(?:->\d+)+", text)
+        return m.group(0) if m else None
+    return None
+
+
+def normalize_gt(gt, task):
+    """Normalize ground truth for comparison."""
+    if task in ("CC", "NC", "PEA", "PI"):
+        letters = re.findall(r"[A-F]", gt.strip().upper())
+        return ",".join(sorted(letters)) if letters else gt.strip()
+    return gt.strip()
+
+
+def temporal_iou(pred_str, gt_str):
+    """IoU between two time segments given as 'start,end' strings."""
+    try:
+        ps, pe = map(float, pred_str.split(","))
+        gs, ge = map(float, gt_str.split(","))
+    except Exception:
+        return 0.0
+    inter = max(0.0, min(pe, ge) - max(ps, gs))
+    union = max(pe, ge) - min(ps, gs)
+    return inter / union if union > 0 else 0.0
 
 
 def build_messages(video_paths, prompt):
@@ -59,10 +92,7 @@ def build_messages(video_paths, prompt):
             "max_pixels": 128 * 28 * 28,
         })
         content.append({"type": "text", "text": f"This is Video {i + 1}."})
-    content.append({
-        "type": "text",
-        "text": prompt + "\n\nAnswer with only one letter: A, B, C, or D.",
-    })
+    content.append({"type": "text", "text": prompt})
     return [{"role": "user", "content": content}]
 
 
@@ -96,6 +126,8 @@ def assemble_offline_batch(batch, processor):
         gt = item["conversations"][1]["value"].strip().upper()
 
         # Load precomputed features for all videos in this sample
+        if not video_paths:
+            raise RuntimeError(f"Sample {sample_id} has no video paths")
         sample_precomputed = []
         for vp in video_paths:
             feat = load_precomputed_for_video(vp)
@@ -105,7 +137,7 @@ def assemble_offline_batch(batch, processor):
 
         messages = build_messages(video_paths, prompt)
         text = processor.apply_chat_template(
-            messages, tokenize=False, add_generation_prompt=True
+            messages, tokenize=False, add_generation_prompt=True, enable_thinking=False
         )
         texts.append(text)
         batch_meta.append((sample_id, gt))
@@ -143,6 +175,12 @@ def assemble_offline_batch(batch, processor):
     else:
         deepstack_feature_inputs = None
 
+    print(f"[DEBUG assemble] videos={len(all_visual_tokens)}  "
+          f"per-video tokens={[t.shape[0] for t in all_visual_tokens]}  "
+          f"feature_inputs={feature_inputs.shape}  "
+          f"video_grid_thw={video_grid_thw.tolist()}  "
+          f"input_ids={proc_out['input_ids'].shape}")
+
     inputs = {
         **proc_out,
         "video_grid_thw": video_grid_thw,
@@ -170,7 +208,7 @@ def assemble_online_batch(batch, processor):
 
         messages = build_messages(video_paths, prompt)
         text = processor.apply_chat_template(
-            messages, tokenize=False, add_generation_prompt=True
+            messages, tokenize=False, add_generation_prompt=True, enable_thinking=False
         )
 
         image_inputs, video_inputs, video_kwargs = process_vision_info(
@@ -223,12 +261,22 @@ def main():
     model.eval()
 
     processor = Qwen3VLProcessorWithPrecomputed.from_pretrained(MODEL_NAME)
+    processor.tokenizer.padding_side = "left"
 
     with open(DATA_PATH) as f:
         data = json.load(f)
 
-    subset = data[:LIMIT] if LIMIT > 0 else data
+    all_data = data[:LIMIT] if LIMIT > 0 else data
+    subset = [
+        item for item in all_data
+        if item["video"] and all(
+            load_precomputed_for_video(vp) is not None for vp in item["video"]
+        )
+    ]
+    print(f"Samples with precomputed features: {len(subset)} / {len(all_data)}")
     total = correct = 0
+
+    fsa_results = []
 
     with open(OUT_PATH, "w") as fout:
         for batch_start in tqdm(range(0, len(subset), BATCH_SIZE)):
@@ -278,26 +326,37 @@ def main():
                     clean_up_tokenization_spaces=False,
                 )
 
-                preds = extract_choice(responses)
-                for (sample_id, gt), pred, response in zip(batch_meta, preds, responses):
-                    is_correct = pred == gt
-                    total += 1
-                    correct += int(is_correct)
-
+                for (sample_id, gt), response in zip(batch_meta, responses):
+                    task = get_task(sample_id)
+                    pred = extract_pred(response, task)
                     record = {
                         "id": sample_id,
                         "pred_raw": response,
-                        "pred": pred,
                         "gt": gt,
-                        "correct": is_correct,
+                        "pred": pred,
                         "offline": use_offline,
                     }
+
+                    if task == "FSA":
+                        iou = temporal_iou(pred, gt) if pred else 0.0
+                        fsa_results.append({"id": sample_id, "iou": round(iou, 3)})
+                        record["iou"] = round(iou, 3)
+                    elif task == "PSS":
+                        is_correct = pred == gt.strip()
+                        record["correct"] = is_correct
+                        correct += int(is_correct)
+                        total += 1
+                    else:
+                        is_correct = pred == normalize_gt(gt, task)
+                        record["correct"] = is_correct
+                        correct += int(is_correct)
+                        total += 1
                     fout.write(json.dumps(record) + "\n")
 
-                acc = correct / total
+                acc = correct / total if total > 0 else 0.0
                 last_id, last_gt = batch_meta[-1]
                 print(
-                    f"[{total}] id={last_id} pred={preds[-1]} gt={last_gt} "
+                    f"[{total}] id={last_id} gt={last_gt} "
                     f"acc={acc:.3f} {'(offline)' if use_offline else '(online)'}"
                 )
 
@@ -307,8 +366,11 @@ def main():
                 print(f"[ERROR] batch {batch_start}: {e}")
 
     if total > 0:
-        print(f"\nFinal accuracy: {correct}/{total} = {correct / total:.3f}")
-    else:
+        print(f"\nMC/PSS accuracy: {correct}/{total} = {correct / total:.3f}")
+    if fsa_results:
+        mean_iou = sum(p["iou"] for p in fsa_results) / len(fsa_results)
+        print(f"FSA mean IoU: {mean_iou:.3f}  ({len(fsa_results)} samples)")
+    if not total and not fsa_results:
         print("\nNo samples evaluated.")
     print(f"Results saved to {OUT_PATH}")
 

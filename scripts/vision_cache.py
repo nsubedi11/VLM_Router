@@ -99,8 +99,15 @@ def load_precomputed_video(feat_path: str) -> Optional[Dict[str, Any]]:
     format.
     """
     if not os.path.exists(feat_path):
+        print(f"[DEBUG vision_cache] MISS {feat_path}")
         return None
     data = torch.load(feat_path, weights_only=False)
     if isinstance(data, dict) and "visual_tokens" in data:
+        vt = data["visual_tokens"]
+        thw = data.get("video_grid_thw")
+        print(f"[DEBUG vision_cache] HIT  {os.path.basename(feat_path)}  "
+              f"visual_tokens={vt.shape}  grid_thw={thw.tolist() if thw is not None else None}  "
+              f"fps={data.get('fps')}  frames={len(data.get('frames_indices', []))}")
         return data
+    print(f"[DEBUG vision_cache] legacy format, skipping {feat_path}")
     return None  # legacy format

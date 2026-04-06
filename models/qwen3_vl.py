@@ -206,6 +206,16 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
         _, video_mask = m.get_placeholder_mask(
             input_ids, inputs_embeds, video_features=video_embeds
         )
+        mask_slots = video_mask[..., 0].sum().item()
+        expected = feature_inputs.shape[0]
+        print(f"[DEBUG forward] feature_inputs={feature_inputs.shape}  "
+              f"video_mask slots={mask_slots}  "
+              f"inputs_embeds={inputs_embeds.shape}  "
+              f"match={'OK' if mask_slots == expected else f'MISMATCH (expected {expected})'}")
+        assert mask_slots == expected, (
+            f"video_mask has {mask_slots} slots but feature_inputs has {expected} tokens — "
+            "visual features cannot be fully scattered"
+        )
         inputs_embeds = inputs_embeds.masked_scatter(video_mask, video_embeds)
 
         # 4. Build visual_pos_masks and deepstack_visual_embeds
@@ -232,17 +242,16 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
             visual_pos_masks = video_mask_1d
             deepstack_visual_embeds = deepstack_feature_inputs  # may be None
 
-        # 5. 3D position IDs (M-RoPE) — requires input_ids + mm_token_type_ids
+        # 5. 3D position IDs (M-RoPE) — computed via get_rope_index (prefill only;
+        #    decode steps take the super().forward() path with feature_inputs=None)
         if position_ids is None:
-            position_ids = m.compute_3d_position_ids(
+            position_ids, rope_deltas = m.get_rope_index(
                 input_ids=input_ids,
-                inputs_embeds=inputs_embeds,
                 image_grid_thw=image_grid_thw,
                 video_grid_thw=video_grid_thw,
                 attention_mask=attention_mask,
-                past_key_values=past_key_values,
-                mm_token_type_ids=mm_token_type_ids,
             )
+            m.rope_deltas = rope_deltas
 
         # 6. Language model forward (input_ids=None, uses inputs_embeds)
         lm_out = m.language_model(
@@ -292,7 +301,7 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
         pixel_values_videos=None,
         image_grid_thw=None,
         video_grid_thw=None,
-        is_first_iteration=False,
+        cache_position=None,
         feature_inputs=None,
         deepstack_feature_inputs=None,
         **kwargs,
@@ -308,13 +317,14 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
             pixel_values_videos=pixel_values_videos,
             image_grid_thw=image_grid_thw,
             video_grid_thw=video_grid_thw,
-            is_first_iteration=is_first_iteration,
+            cache_position=cache_position,
             **kwargs,
         )
 
         # Offline features are only needed on the first (prefill) step;
         # subsequent decode steps use cached key/values.
-        if is_first_iteration:
+        is_prefill = cache_position is not None and cache_position[0] == 0
+        if is_prefill:
             model_inputs["feature_inputs"] = feature_inputs
             model_inputs["deepstack_feature_inputs"] = deepstack_feature_inputs
         else:
@@ -336,6 +346,15 @@ class Qwen3VLProcessorWithPrecomputed(Qwen3VLProcessor):
     Use call_with_precomputed() instead of __call__() when visual features
     have been precomputed offline.
     """
+
+    def _build_mm_token_type_ids(self, ids_list: list) -> torch.Tensor:
+        """Mark image/video pad token positions as 1, all other positions as 0."""
+        import numpy as np
+        arr = np.array(ids_list, dtype=np.int64)
+        mm_type = np.zeros_like(arr, dtype=np.int64)
+        mm_type[arr == self.image_token_id] = 1
+        mm_type[arr == self.video_token_id] = 1
+        return torch.from_numpy(mm_type)
 
     def call_with_precomputed(
         self,
@@ -435,7 +454,7 @@ class Qwen3VLProcessorWithPrecomputed(Qwen3VLProcessor):
             if isinstance(text_inputs["input_ids"], torch.Tensor)
             else text_inputs["input_ids"]
         )
-        mm_type_ids = self.create_mm_token_type_ids(ids_list)
+        mm_type_ids = self._build_mm_token_type_ids(ids_list)
 
         data: dict = {**text_inputs, **image_inputs}
         data["mm_token_type_ids"] = mm_type_ids
