@@ -8,6 +8,14 @@ import sys
 import torch
 import argparse
 
+
+def _to_device(v, device):
+    if isinstance(v, torch.Tensor):
+        return v.to(device)
+    if isinstance(v, list):
+        return [_to_device(x, device) for x in v]
+    return v
+
 _HERE = os.path.dirname(__file__)
 sys.path.insert(0, _HERE)
 sys.path.insert(0, os.path.join(_HERE, ".."))
@@ -24,18 +32,19 @@ FPS = 1
 MAX_NEW_TOKENS = 512
 
 DEFAULT_VIDEO_1 = "/scratch/general/vast/u1209255/CrossVid_Dataset/videos/cook/iuQjb1-WAzs.mp4"
-DEFAULT_VIDEO_2 = "/scratch/general/vast/u1209255/CrossVid_Dataset/videos/cook/oR2QDpoatcQ.mp4"
+DEFAULT_VIDEO_2 = "/scratch/general/vast/u1209255/CrossVid_Dataset/videos/movie/68.mp4"
 PROMPT = (
     "Please describe what is happening in Video 1 and Video 2 separately, "
     "then explain the main differences between them."
 )
 
-
+    
 def build_messages(video_path1, video_path2, prompt):
     return [
         {
             "role": "user",
             "content": [
+                {"type": "text", "text": "This is Video 1."},
                 {
                     "type": "video",
                     "video": video_path1,
@@ -44,7 +53,7 @@ def build_messages(video_path1, video_path2, prompt):
                     "min_pixels": 16 * 28 * 28,
                     "max_pixels": 128 * 28 * 28,
                 },
-                {"type": "text", "text": "This is Video 1."},
+                {"type": "text", "text": "This is Video 2."},
                 {
                     "type": "video",
                     "video": video_path2,
@@ -53,7 +62,6 @@ def build_messages(video_path1, video_path2, prompt):
                     "min_pixels": 16 * 28 * 28,
                     "max_pixels": 128 * 28 * 28,
                 },
-                {"type": "text", "text": "This is Video 2."},
                 {"type": "text", "text": prompt},
             ],
         }
@@ -109,12 +117,9 @@ def run_offline(video_path1, video_path2, prompt, processor):
         return_tensors="pt",
     )
 
-    feature_inputs = torch.cat(all_visual_tokens, dim=0)
-    video_grid_thw = torch.cat(all_grid_thw, dim=0)
-    deepstack_feature_inputs = (
-        [torch.cat(layer, dim=0) for layer in all_deepstack]
-        if all_deepstack is not None else None
-    )
+    video_grid_thw = all_grid_thw                # List[Tensor[1,3]]
+    feature_inputs = all_visual_tokens          # List[Tensor[n_i, D]]
+    deepstack_feature_inputs = all_deepstack    # List[List[Tensor]] or None
 
     inputs = {
         **proc_out,
@@ -191,17 +196,11 @@ def main():
     if inputs is not None:
         print("[INFO] Using precomputed features (offline mode)")
     else:
-        print("[INFO] Decoding frames on-the-fly (online mode)")
-        inputs = run_online(args.video1, args.video2, args.prompt, processor)
+        print("[ERROR] Precomputed features not found for one or both videos.")
+        exit()
+        
 
-    inputs = {
-        k: v.to(model.device) if isinstance(v, torch.Tensor) else v
-        for k, v in inputs.items()
-    }
-    if isinstance(inputs.get("deepstack_feature_inputs"), list):
-        inputs["deepstack_feature_inputs"] = [
-            t.to(model.device) for t in inputs["deepstack_feature_inputs"]
-        ]
+    inputs = {k: _to_device(v, model.device) for k, v in inputs.items()}
 
     with torch.no_grad():
         generated_ids = model.generate(

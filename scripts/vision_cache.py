@@ -22,10 +22,11 @@ import hashlib
 import torch
 from typing import Optional, Union, List, Dict, Any
 
+
 from qwen_vl_utils import extract_vision_info, fetch_image, fetch_video
 from PIL import Image
 
-FEAT_DIR = "features/qwen_video"
+FEAT_DIR="/scratch/rai/vast1/alhalah/users/nikesh/qwen3vl_proj/features/qwen_video"
 
 # Use absolute path
 FEAT_DIR = "/scratch/rai/vast1/alhalah/users/nikesh/qwen3vl_proj/features/qwen_video"

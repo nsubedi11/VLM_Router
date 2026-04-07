@@ -8,6 +8,14 @@ import sys
 import torch
 import argparse
 
+
+def _to_device(v, device):
+    if isinstance(v, torch.Tensor):
+        return v.to(device)
+    if isinstance(v, list):
+        return [_to_device(x, device) for x in v]
+    return v
+
 _HERE = os.path.dirname(__file__)
 sys.path.insert(0, _HERE)
 sys.path.insert(0, os.path.join(_HERE, ".."))
@@ -22,8 +30,9 @@ MODEL_NAME = "Qwen/Qwen3-VL-2B-Instruct"
 RESIZED_HEIGHT = 480
 FPS = 1
 MAX_NEW_TOKENS = 256
+FEAT_DIR = os.path.join(_HERE, "..", "features", "qwen_video")
 
-DEFAULT_VIDEO = "/scratch/general/vast/u1209255/CrossVid_Dataset/videos/cook/iuQjb1-WAzs.mp4"
+DEFAULT_VIDEO = "/scratch/general/vast/u1209255/CrossVid_Dataset/videos/cook/qRUbmEZ6oiA.mp4"
 PROMPT = "Please describe in detail what is happening in this video."
 
 
@@ -47,7 +56,7 @@ def build_messages(video_path, prompt):
 
 
 def run_offline(video_path, prompt, processor):
-    feat_path = video_feat_path(video_path)
+    feat_path = video_feat_path(video_path, feat_dir=FEAT_DIR)
     feat = load_precomputed_video(feat_path)
     if feat is None:
         return None
@@ -70,11 +79,12 @@ def run_offline(video_path, prompt, processor):
         return_tensors="pt",
     )
 
-    feature_inputs = feat["visual_tokens"]
-    video_grid_thw = feat["video_grid_thw"]
+    feature_inputs = [feat["visual_tokens"]]        # List[Tensor[n, D]]
+    video_grid_thw = [feat["video_grid_thw"]]       # List[Tensor[1,3]]
 
     ds = feat.get("deepstack_features") or []
-    deepstack_feature_inputs = [d.unsqueeze(0) if d.dim() == 2 else d for d in ds] if ds else None
+    # deepstack_feature_inputs: List[List[Tensor]] — outer=layer, inner=video
+    deepstack_feature_inputs = [[d] for d in ds] if ds else None
 
     inputs = {
         **proc_out,
@@ -150,16 +160,10 @@ def main():
         print("[INFO] Using precomputed features (offline mode)")
     else:
         print("[INFO] No precomputed features found — decoding frames on-the-fly (online mode)")
-        inputs = run_online(args.video, args.prompt, processor)
+        exit()
+        # inputs = run_online(args.video, args.prompt, processor)
 
-    inputs = {
-        k: v.to(model.device) if isinstance(v, torch.Tensor) else v
-        for k, v in inputs.items()
-    }
-    if isinstance(inputs.get("deepstack_feature_inputs"), list):
-        inputs["deepstack_feature_inputs"] = [
-            t.to(model.device) for t in inputs["deepstack_feature_inputs"]
-        ]
+    inputs = {k: _to_device(v, model.device) for k, v in inputs.items()}
 
     with torch.no_grad():
         generated_ids = model.generate(
