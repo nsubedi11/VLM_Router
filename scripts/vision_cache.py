@@ -27,6 +27,9 @@ from PIL import Image
 
 FEAT_DIR = "features/qwen_video"
 
+# Use absolute path
+FEAT_DIR = "/scratch/rai/vast1/alhalah/users/nikesh/qwen3vl_proj/features/qwen_video"
+
 
 def video_feat_path(video_path: str, feat_dir: str = FEAT_DIR) -> str:
     """Derive a canonical cache path for a video's preprocessed tensor."""
