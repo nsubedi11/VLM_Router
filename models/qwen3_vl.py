@@ -103,15 +103,15 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
                     [[self.VIDEO_CHUNK_T, H, W]],
                     device=pixel_values_videos.device,
                 )
-                chunk_out = visual(chunk_patches, grid_thw=chunk_grid, return_dict=True)
+                hidden_states, ds_feats = visual(chunk_patches, grid_thw=chunk_grid)
 
                 real_tokens = chunk_T * tokens_per_t
-                video_tokens.append(chunk_out.pooler_output[:real_tokens].cpu())
+                video_tokens.append(hidden_states[:real_tokens].cpu())
 
-                if chunk_out.deepstack_features:
-                    video_ds.append([df[:real_tokens].cpu() for df in chunk_out.deepstack_features])
+                if ds_feats:
+                    video_ds.append([df[:real_tokens].cpu() for df in ds_feats])
 
-                del chunk_out
+                del hidden_states, ds_feats
 
             all_visual_tokens.append(torch.cat(video_tokens, dim=0))
 
@@ -148,12 +148,12 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
         pixel_values: Optional[torch.Tensor] = None,
         pixel_values_videos: Optional[torch.FloatTensor] = None,
         image_grid_thw: Optional[torch.LongTensor] = None,
-        video_grid_thw: Optional[torch.LongTensor] = None,
+        video_grid_thw: Optional[Union[torch.LongTensor, List[torch.LongTensor]]] = None,
         mm_token_type_ids: Optional[torch.IntTensor] = None,
         logits_to_keep: Union[int, torch.Tensor] = 0,
         # Offline feature arguments
-        feature_inputs: Optional[torch.FloatTensor] = None,
-        deepstack_feature_inputs: Optional[List[torch.FloatTensor]] = None,
+        feature_inputs: Optional[List[torch.FloatTensor]] = None,        # one tensor per video
+        deepstack_feature_inputs: Optional[List[List[torch.FloatTensor]]] = None,  # [layer][video]
         **kwargs,
     ):
         if feature_inputs is None:
@@ -182,7 +182,6 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
 
         # 1. Embed text tokens
         inputs_embeds = m.get_input_embeddings()(input_ids)
-        # look into how long this
 
         # do pooling of vid features
         # Use input embed to router, Transformer CLS -> one of the resolution, (add some jittering)20% 
@@ -191,24 +190,23 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
         image_mask = None
         deepstack_image_embeds = None
         if pixel_values is not None:
-            img_out = m.get_image_features(pixel_values, image_grid_thw, return_dict=True)
-            image_embeds = torch.cat(img_out.pooler_output, dim=0).to(
+            img_embeds_split, deepstack_image_embeds = m.get_image_features(pixel_values, image_grid_thw)
+            image_embeds = torch.cat(img_embeds_split, dim=0).to(
                 inputs_embeds.device, inputs_embeds.dtype
             )
             image_mask, _ = m.get_placeholder_mask(
                 input_ids, inputs_embeds, image_features=image_embeds
             )
             inputs_embeds = inputs_embeds.masked_scatter(image_mask, image_embeds)
-            deepstack_image_embeds = img_out.deepstack_features
 
         # 3. Videos: inject precomputed tokens
-        video_embeds = feature_inputs.to(inputs_embeds.device, inputs_embeds.dtype)
+        video_embeds = torch.cat(feature_inputs, dim=0).to(inputs_embeds.device, inputs_embeds.dtype)
         _, video_mask = m.get_placeholder_mask(
             input_ids, inputs_embeds, video_features=video_embeds
         )
         mask_slots = video_mask[..., 0].sum().item()
-        expected = feature_inputs.shape[0]
-        print(f"[DEBUG forward] feature_inputs={feature_inputs.shape}  "
+        expected = video_embeds.shape[0]
+        print(f"[DEBUG forward] feature_inputs={[t.shape[0] for t in feature_inputs]} tokens  "
               f"video_mask slots={mask_slots}  "
               f"inputs_embeds={inputs_embeds.shape}  "
               f"match={'OK' if mask_slots == expected else f'MISMATCH (expected {expected})'}")
@@ -228,7 +226,8 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
                 img_jt = image_mask_1d[visual_pos_masks]
                 vid_jt = video_mask_1d[visual_pos_masks]
                 joint_ds = []
-                for img_ds, vid_ds in zip(deepstack_image_embeds, deepstack_feature_inputs):
+                for img_ds, vid_ds_list in zip(deepstack_image_embeds, deepstack_feature_inputs):
+                    vid_ds = torch.cat(vid_ds_list, dim=0)
                     combined = img_ds.new_zeros(visual_pos_masks.sum(), img_ds.shape[-1])
                     combined[img_jt] = img_ds.to(combined.device, combined.dtype)
                     combined[vid_jt] = vid_ds.to(combined.device, combined.dtype)
@@ -237,18 +236,26 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
             elif deepstack_image_embeds:
                 deepstack_visual_embeds = deepstack_image_embeds
             else:
-                deepstack_visual_embeds = deepstack_feature_inputs
+                deepstack_visual_embeds = (
+                    [torch.cat(layer_vids, dim=0) for layer_vids in deepstack_feature_inputs]
+                    if deepstack_feature_inputs else None
+                )
         else:
             visual_pos_masks = video_mask_1d
-            deepstack_visual_embeds = deepstack_feature_inputs  # may be None
+            # Cat per-video tensors for each layer into a single tensor per layer.
+            deepstack_visual_embeds = (
+                [torch.cat(layer_vids, dim=0) for layer_vids in deepstack_feature_inputs]
+                if deepstack_feature_inputs else None
+            )
 
         # 5. 3D position IDs (M-RoPE) — computed via get_rope_index (prefill only;
         #    decode steps take the super().forward() path with feature_inputs=None)
         if position_ids is None:
+            video_grid_thw_cat = torch.cat(video_grid_thw, dim=0) if isinstance(video_grid_thw, list) else video_grid_thw
             position_ids, rope_deltas = m.get_rope_index(
                 input_ids=input_ids,
                 image_grid_thw=image_grid_thw,
-                video_grid_thw=video_grid_thw,
+                video_grid_thw=video_grid_thw_cat,
                 attention_mask=attention_mask,
             )
             m.rope_deltas = rope_deltas

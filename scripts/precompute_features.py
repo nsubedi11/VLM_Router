@@ -37,8 +37,8 @@ from transformers import AutoProcessor
 from models.qwen3_vl import Qwen3VLWithOfflineFeatures
 
 SPLITS_DIR = "splits/split_80_10_10"
-RESIZED_HEIGHT = 480
-FPS = 1
+RESIZED_HEIGHT = 360
+FPS = 0.5
 
 
 # ---------------------------------------------------------------------------

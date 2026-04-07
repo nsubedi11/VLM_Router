@@ -13,6 +13,14 @@ import json
 import torch
 from tqdm import tqdm
 
+
+def _to_device(v, device):
+    if isinstance(v, torch.Tensor):
+        return v.to(device)
+    if isinstance(v, list):
+        return [_to_device(x, device) for x in v]
+    return v
+
 _HERE = os.path.dirname(__file__)
 sys.path.insert(0, _HERE)
 sys.path.insert(0, os.path.join(_HERE, ".."))
@@ -32,6 +40,7 @@ FPS = 1
 MAX_NEW_TOKENS = 96
 BATCH_SIZE = 1
 LIMIT = 20
+feat_dir = "features/qwen_video"
 
 
 # ---------------------------------------------------------------------------
@@ -83,7 +92,9 @@ def temporal_iou(pred_str, gt_str):
 def build_messages(video_paths, prompt):
     content = []
     for i, vp in enumerate(video_paths):
-        content.append({
+        content.append({"type": "text", "text": f"This is Video {i + 1}."})
+        content.append(
+            {
             "type": "video",
             "video": vp,
             "resized_height": RESIZED_HEIGHT,
@@ -91,14 +102,13 @@ def build_messages(video_paths, prompt):
             "min_pixels": 16 * 28 * 28,
             "max_pixels": 128 * 28 * 28,
         })
-        content.append({"type": "text", "text": f"This is Video {i + 1}."})
     content.append({"type": "text", "text": prompt})
     return [{"role": "user", "content": content}]
 
 
 def load_precomputed_for_video(vp):
     """Load precomputed dict for one video, or return None."""
-    return load_precomputed_video(video_feat_path(vp))
+    return load_precomputed_video(video_feat_path(vp, feat_dir=feat_dir))
 
 
 # ---------------------------------------------------------------------------
@@ -167,19 +177,11 @@ def assemble_offline_batch(batch, processor):
         return_tensors="pt",
     )
 
-    feature_inputs = torch.cat(all_visual_tokens, dim=0)
-    video_grid_thw = torch.cat(all_grid_thw, dim=0)
+    # Pass per-video lists directly; model cats them internally.
+    video_grid_thw = all_grid_thw                # List[Tensor[1,3]]
+    feature_inputs = all_visual_tokens           # List[Tensor[n_i, D]]
+    deepstack_feature_inputs = all_deepstack     # List[List[Tensor]] (outer=layer, inner=video) or None
 
-    if all_deepstack is not None:
-        deepstack_feature_inputs = [torch.cat(layer, dim=0) for layer in all_deepstack]
-    else:
-        deepstack_feature_inputs = None
-
-    print(f"[DEBUG assemble] videos={len(all_visual_tokens)}  "
-          f"per-video tokens={[t.shape[0] for t in all_visual_tokens]}  "
-          f"feature_inputs={feature_inputs.shape}  "
-          f"video_grid_thw={video_grid_thw.tolist()}  "
-          f"input_ids={proc_out['input_ids'].shape}")
 
     inputs = {
         **proc_out,
@@ -300,14 +302,7 @@ def main():
                     continue
 
             try:
-                inputs = {
-                    k: v.to(model.device) if isinstance(v, torch.Tensor) else v
-                    for k, v in inputs.items()
-                }
-                if isinstance(inputs.get("deepstack_feature_inputs"), list):
-                    inputs["deepstack_feature_inputs"] = [
-                        t.to(model.device) for t in inputs["deepstack_feature_inputs"]
-                    ]
+                inputs = {k: _to_device(v, model.device) for k, v in inputs.items()}
 
                 with torch.no_grad():
                     generated_ids = model.generate(
