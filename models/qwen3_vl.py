@@ -17,14 +17,102 @@
 from __future__ import annotations
 
 import torch
-from typing import List, Optional, Union
+from typing import List, Optional, Tuple, Union
 
 from transformers import Qwen3VLForConditionalGeneration, Qwen3VLProcessor
+from .resolution_pooling import prepare_pooled_inputs
 from transformers.models.qwen3_vl.modeling_qwen3_vl import Qwen3VLCausalLMOutputWithPast
 from transformers.feature_extraction_utils import BatchFeature
 from transformers.utils import logging
 
 logger = logging.get_logger(__name__)
+
+
+# ---------------------------------------------------------------------------
+# Query extraction helpers (used by the resolution router)
+# ---------------------------------------------------------------------------
+
+def extract_query_ids(
+    input_ids: torch.Tensor,    # [B, L]
+    vision_end_id: int,
+    pad_token_id: int = 0,
+) -> List[torch.Tensor]:
+    """
+    Extract user-query token IDs from a left-padded input_ids batch.
+
+    The user query is the sub-sequence that follows the last <|vision_end|>
+    token in each row, with padding tokens removed.  This covers the text
+    question that comes after all video content in the user turn.
+
+    Sequence layout produced by Qwen3VLProcessorWithPrecomputed:
+        [pad ...] <|im_start|> system ... <|im_end|>
+        <|im_start|> user
+          "This is Video N."
+          <|vision_start|> [video_pad × frame_seqlen] <|vision_end|>   ← repeated
+          [question text tokens]                                         ← query
+        <|im_end|>
+        <|im_start|> assistant
+
+    If a sequence contains no vision tokens (text-only), all non-padding
+    tokens are returned as the query.
+
+    Returns:
+        List of 1-D LongTensors, one per batch item (variable length).
+    """
+    results: List[torch.Tensor] = []
+
+    for b in range(input_ids.shape[0]):
+        seq = input_ids[b]
+
+        ve_positions = (seq == vision_end_id).nonzero(as_tuple=False)
+        if ve_positions.numel() > 0:
+            # Tokens strictly after the last <|vision_end|>
+            last_ve = int(ve_positions[-1, 0])
+            query = seq[last_ve + 1:]
+        else:
+            # No video — use entire sequence
+            query = seq
+
+        # Drop padding tokens
+        query = query[query != pad_token_id]
+        results.append(query)
+
+    return results
+
+
+def get_query_embedding(
+    input_ids: torch.Tensor,       # [B, L]
+    embed_fn,                      # nn.Embedding — model.get_input_embeddings()
+    vision_end_id: int,
+    pad_token_id: int = 0,
+) -> torch.Tensor:                 # [B, D]
+    """
+    Return a mean-pooled query embedding [B, D] suitable for a router head.
+
+    Steps:
+      1. extract_query_ids  → variable-length token IDs per item
+      2. embed each item's tokens via embed_fn
+      3. mean-pool across the sequence dimension  → [B, D]
+
+    If a batch item has no query tokens (degenerate input) a zero vector is
+    returned for that item so the batch shape is always [B, D].
+    """
+    query_ids_list = extract_query_ids(input_ids, vision_end_id, pad_token_id)
+
+    embeddings: List[torch.Tensor] = []
+    for qids in query_ids_list:
+        if qids.numel() == 0:
+            D = embed_fn.weight.shape[1]
+            embeddings.append(
+                torch.zeros(1, D, dtype=embed_fn.weight.dtype,
+                            device=embed_fn.weight.device)
+            )
+        else:
+            # embed_fn expects [...] LongTensor; returns [..., D]
+            emb = embed_fn(qids)          # [seq, D]
+            embeddings.append(emb.mean(dim=0, keepdim=True))  # [1, D]
+
+    return torch.cat(embeddings, dim=0)   # [B, D]
 
 
 # ---------------------------------------------------------------------------
@@ -179,41 +267,81 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
         # Replicates the logic inside Qwen3VLModel.forward().
         # ------------------------------------------------------------------
         m = self.model  # Qwen3VLModel
+        cfg = self.config
+        _pad_id = getattr(cfg, "pad_token_id", 0) or 0
+
+        # --- Resolution selection -------------------------------------------
+        # Extract text query tokens (content after the last <|vision_end|>).
+        _query_ids = extract_query_ids(
+            input_ids,
+            vision_end_id=cfg.vision_end_token_id,
+            pad_token_id=_pad_id,
+        )
+
+        # Debug: verify query extraction by decoding captured tokens.
+        # Enable by setting:  model._debug_tokenizer = processor.tokenizer
+        # if hasattr(self, "_debug_tokenizer"):
+        #     for _b, _qids in enumerate(_query_ids):
+        #         _decoded = self._debug_tokenizer.decode(
+        #             _qids.tolist(), skip_special_tokens=False
+        #         )
+        #         print(f"[DEBUG query] batch[{_b}] ({_qids.numel()} tokens): "
+        #               f"{repr(_decoded[:300])}")
+
+        # Route: ResolutionRouter predicts pool_level per batch item.
+        #   query_ids → 2-layer TransformerEncoder → MLP → pool_level ∈ {0, 1, 2}
+        # Assign model.resolution_router = ResolutionRouter(input_dim=...) to activate.
+        # Falls back to full resolution (pool_level=0) until the router is trained.
+        if hasattr(self, "resolution_router") and self.resolution_router is not None:
+            _levels = self.resolution_router.predict(_query_ids, m.get_input_embeddings())
+            # All items in the batch must share one pool_level (uniform geometry).
+            pool_level = int(_levels.max().item())
+        else:
+            pool_level = 0
+        # print(f"[DEBUG resolution routing] pool_level={pool_level} ")
+
+        if pool_level > 0:
+            (feature_inputs, video_grid_thw,
+             input_ids, attention_mask,
+             deepstack_feature_inputs) = prepare_pooled_inputs(
+                feature_inputs, video_grid_thw, input_ids, attention_mask,
+                pool_level=pool_level,
+                video_token_id=cfg.video_token_id,
+                vision_start_id=cfg.vision_start_token_id,
+                vision_end_id=cfg.vision_end_token_id,
+                deepstack_feature_inputs=deepstack_feature_inputs,
+                pad_token_id=_pad_id,
+            )
 
         # 1. Embed text tokens
         inputs_embeds = m.get_input_embeddings()(input_ids)
 
-        # do pooling of vid features
-        # Use input embed to router, Transformer CLS -> one of the resolution, (add some jittering)20% 
-
         # 2. Images: processed normally when present (unusual for this project)
         image_mask = None
         deepstack_image_embeds = None
-        if pixel_values is not None:
-            img_embeds_split, deepstack_image_embeds = m.get_image_features(pixel_values, image_grid_thw)
-            image_embeds = torch.cat(img_embeds_split, dim=0).to(
-                inputs_embeds.device, inputs_embeds.dtype
-            )
-            image_mask, _ = m.get_placeholder_mask(
-                input_ids, inputs_embeds, image_features=image_embeds
-            )
-            inputs_embeds = inputs_embeds.masked_scatter(image_mask, image_embeds)
+        # if pixel_values is not None:
+        #     img_embeds_split, deepstack_image_embeds = m.get_image_features(pixel_values, image_grid_thw)
+        #     image_embeds = torch.cat(img_embeds_split, dim=0).to(
+        #         inputs_embeds.device, inputs_embeds.dtype
+        #     )
+        #     image_mask, _ = m.get_placeholder_mask(
+        #         input_ids, inputs_embeds, image_features=image_embeds
+        #     )
+        #     inputs_embeds = inputs_embeds.masked_scatter(image_mask, image_embeds)
 
-        # 3. Videos: inject precomputed tokens
+        # 3. Videos: inject precomputed tokens (possibly pooled above)
         video_embeds = torch.cat(feature_inputs, dim=0).to(inputs_embeds.device, inputs_embeds.dtype)
+
         _, video_mask = m.get_placeholder_mask(
             input_ids, inputs_embeds, video_features=video_embeds
         )
         mask_slots = video_mask[..., 0].sum().item()
         expected = video_embeds.shape[0]
-        print(f"[DEBUG forward] feature_inputs={[t.shape[0] for t in feature_inputs]} tokens  "
-              f"video_mask slots={mask_slots}  "
-              f"inputs_embeds={inputs_embeds.shape}  "
-              f"match={'OK' if mask_slots == expected else f'MISMATCH (expected {expected})'}")
         assert mask_slots == expected, (
             f"video_mask has {mask_slots} slots but feature_inputs has {expected} tokens — "
             "visual features cannot be fully scattered"
         )
+        # print("DEBUG forward(): scattering video_embeds with shape", video_embeds.shape, "into inputs_embeds with shape", inputs_embeds.shape, "using video_mask with shape", video_mask.shape)
         inputs_embeds = inputs_embeds.masked_scatter(video_mask, video_embeds)
 
         # 4. Build visual_pos_masks and deepstack_visual_embeds
@@ -252,6 +380,13 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
         #    decode steps take the super().forward() path with feature_inputs=None)
         if position_ids is None:
             video_grid_thw_cat = torch.cat(video_grid_thw, dim=0) if isinstance(video_grid_thw, list) else video_grid_thw
+            _vid_in_ids = int((input_ids == self.config.video_token_id).sum())
+            _vid_in_grid = int(video_grid_thw_cat[:, 0].sum() *
+                               (video_grid_thw_cat[:, 1] // 2).sum() *
+                               (video_grid_thw_cat[:, 2] // 2).sum()) if video_grid_thw_cat is not None else 0
+            # print(f"[DEBUG rope] video_tokens_in_ids={_vid_in_ids}  "
+            #       f"feature_total={sum(f.shape[0] for f in feature_inputs)}  "
+            #       f"video_grid_thw={video_grid_thw_cat.tolist()}")
             position_ids, rope_deltas = m.get_rope_index(
                 input_ids=input_ids,
                 image_grid_thw=image_grid_thw,

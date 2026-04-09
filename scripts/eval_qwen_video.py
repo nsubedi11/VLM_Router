@@ -29,6 +29,7 @@ from vision_cache import video_feat_path, load_precomputed_video
 from qwen_vl_utils import process_vision_info
 
 from models.qwen3_vl import Qwen3VLWithOfflineFeatures, Qwen3VLProcessorWithPrecomputed
+from models.resolution_router import ResolutionRouter
 
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
@@ -41,6 +42,8 @@ MAX_NEW_TOKENS = 96
 BATCH_SIZE = 1
 LIMIT = 20
 feat_dir = "features/qwen_video"
+
+feat_dir = "/scratch/rai/vast1/alhalah/users/nikesh/qwen3vl_proj/features/qwen_video"
 
 
 # ---------------------------------------------------------------------------
@@ -262,8 +265,14 @@ def main():
     )
     model.eval()
 
+    # Attach resolution router (randomly initialised; replace with trained weights later).
+    _embed_device = model.device
+    model.resolution_router = ResolutionRouter(input_dim=2048).to(_embed_device)
+    model.resolution_router.eval()
+
     processor = Qwen3VLProcessorWithPrecomputed.from_pretrained(MODEL_NAME)
     processor.tokenizer.padding_side = "left"
+    model._debug_tokenizer = processor.tokenizer
 
     with open(DATA_PATH) as f:
         data = json.load(f)

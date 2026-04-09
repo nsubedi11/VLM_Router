@@ -1,0 +1,11 @@
+{"id": "FSA_840", "pred_raw": "119,170", "gt": "207,219", "pred": "119,170", "offline": true, "iou": 0.0}
+{"id": "FSA_1494", "pred_raw": "286,312", "gt": "416,453", "pred": "286,312", "offline": true, "iou": 0.0}
+{"id": "FSA_623", "pred_raw": "10,15", "gt": "252,305", "pred": "10,15", "offline": true, "iou": 0.0}
+{"id": "CC_186", "pred_raw": "B", "gt": "C", "pred": "B", "offline": true, "correct": false}
+{"id": "PEA_451", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "correct": false}
+{"id": "NC_1050", "pred_raw": "D", "gt": "D", "pred": "D", "offline": true, "correct": true}
+{"id": "FSA_1824", "pred_raw": "194,205", "gt": "400,467", "pred": "194,205", "offline": true, "iou": 0.0}
+{"id": "CC_438", "pred_raw": "A", "gt": "C", "pred": "A", "offline": true, "correct": false}
+{"id": "CC_458", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "correct": false}
+{"id": "NC_562", "pred_raw": "A", "gt": "B", "pred": "A", "offline": true, "correct": false}
+{"id": "NC_747", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "correct": true}
