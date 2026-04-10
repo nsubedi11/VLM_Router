@@ -257,7 +257,6 @@ def prepare_pooled_inputs(
     video_token_id: int,
     vision_start_id: int,
     vision_end_id: int,
-    deepstack_feature_inputs: "Optional[List[List[torch.Tensor]]]" = None,
     merge_size: int = 2,
     pad_token_id: int = 0,
 ) -> "Tuple[List[torch.Tensor], torch.Tensor, torch.Tensor, torch.Tensor, Optional[List[List[torch.Tensor]]]]":
@@ -284,8 +283,9 @@ def prepare_pooled_inputs(
         pooled_features, new_grid_thw, new_input_ids, new_attention_mask,
         pooled_deepstack  (None if deepstack_feature_inputs was None)
     """
+    print(f"feature inputs: {[f.shape for f in feature_inputs]}, video_grid_thw: {video_grid_thw}, input_ids: {input_ids.shape}, attention_mask: {attention_mask.shape}, pool_level: {pool_level}")
     if pool_level == 0:
-        return feature_inputs, video_grid_thw, input_ids, attention_mask, deepstack_feature_inputs
+        return feature_inputs, video_grid_thw, input_ids, attention_mask
 
     orig_grid_thw = video_grid_thw   # keep reference before pooling
 
@@ -294,14 +294,14 @@ def prepare_pooled_inputs(
     )
 
     # Pool deepstack features with the same geometry (one list per layer)
-    pooled_deepstack = None
-    if deepstack_feature_inputs is not None:
-        pooled_deepstack = []
-        for layer_tensors in deepstack_feature_inputs:
-            pooled_layer, _ = pool_features_and_grid(
-                layer_tensors, orig_grid_thw, pool_level, merge_size
-            )
-            pooled_deepstack.append(pooled_layer)
+    # pooled_deepstack = None
+    # if deepstack_feature_inputs is not None:
+    #     pooled_deepstack = []
+    #     for layer_tensors in deepstack_feature_inputs:
+    #         pooled_layer, _ = pool_features_and_grid(
+    #             layer_tensors, orig_grid_thw, pool_level, merge_size
+    #         )
+    #         pooled_deepstack.append(pooled_layer)
 
     new_input_ids, new_attention_mask = shrink_video_tokens_in_ids(
         input_ids, attention_mask,
@@ -314,4 +314,4 @@ def prepare_pooled_inputs(
         pad_token_id=pad_token_id,
     )
 
-    return pooled_features, new_grid_thw, new_input_ids, new_attention_mask, pooled_deepstack
+    return pooled_features, new_grid_thw, new_input_ids, new_attention_mask

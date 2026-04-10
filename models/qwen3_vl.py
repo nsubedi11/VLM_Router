@@ -292,25 +292,28 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
         #   query_ids → 2-layer TransformerEncoder → MLP → pool_level ∈ {0, 1, 2}
         # Assign model.resolution_router = ResolutionRouter(input_dim=...) to activate.
         # Falls back to full resolution (pool_level=0) until the router is trained.
+
+        
+        # pool_level = 1
         if hasattr(self, "resolution_router") and self.resolution_router is not None:
             _levels = self.resolution_router.predict(_query_ids, m.get_input_embeddings())
             # All items in the batch must share one pool_level (uniform geometry).
             pool_level = int(_levels.max().item())
         else:
             pool_level = 0
-        # print(f"[DEBUG resolution routing] pool_level={pool_level} ")
+        # # print(f"[DEBUG resolution routing] pool_level={pool_level} ")
 
         if pool_level > 0:
             (feature_inputs, video_grid_thw,
-             input_ids, attention_mask,
-             deepstack_feature_inputs) = prepare_pooled_inputs(
+             input_ids, attention_mask
+             ) = prepare_pooled_inputs(
                 feature_inputs, video_grid_thw, input_ids, attention_mask,
                 pool_level=pool_level,
                 video_token_id=cfg.video_token_id,
                 vision_start_id=cfg.vision_start_token_id,
                 vision_end_id=cfg.vision_end_token_id,
-                deepstack_feature_inputs=deepstack_feature_inputs,
                 pad_token_id=_pad_id,
+                # deepstack_feature_inputs=deepstack_feature_inputs,
             )
 
         # 1. Embed text tokens
@@ -403,7 +406,7 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
             past_key_values=past_key_values,
             inputs_embeds=inputs_embeds,
             visual_pos_masks=visual_pos_masks,
-            deepstack_visual_embeds=deepstack_visual_embeds,
+            deepstack_visual_embeds=None,
             **kwargs,
         )
 

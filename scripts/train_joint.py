@@ -108,9 +108,9 @@ def forward_step(sample, base_model, router, cfg, device, train: bool):
     attn_mask = sample["attention_mask"].to(device)
     feat_in   = [f.to(device) for f in sample["feature_inputs"]]
     vid_grid  = sample["video_grid_thw"]
-    ds_in     = sample["deepstack_inputs"]
-    if ds_in is not None:
-        ds_in = [[t.to(device) for t in layer] for layer in ds_in]
+    # ds_in     = sample["deepstack_inputs"]
+    # if ds_in is not None:
+    #     ds_in = [[t.to(device) for t in layer] for layer in ds_in]
 
     pad_id   = getattr(cfg, "pad_token_id", 0) or 0
     embed_fn = base_model.get_input_embeddings()
@@ -129,24 +129,25 @@ def forward_step(sample, base_model, router, cfg, device, train: bool):
 
     # Step 3: apply visual token pooling if needed
     if pool_level > 0:
-        feat_in, vid_grid, input_ids, attn_mask, ds_in = prepare_pooled_inputs(
+        feat_in, vid_grid, input_ids, attn_mask = prepare_pooled_inputs(
             feat_in, vid_grid, input_ids, attn_mask,
             pool_level=pool_level,
             video_token_id=cfg.video_token_id,
             vision_start_id=cfg.vision_start_token_id,
             vision_end_id=cfg.vision_end_token_id,
-            deepstack_feature_inputs=ds_in,
             pad_token_id=pad_id,
+            # deepstack_feature_inputs=ds_in,
         )
 
     # Step 4: run the language model
     labels = make_labels(input_ids.shape[1], sample["answer_tokens"], device)
+    print(f"input_ids shape: {input_ids.shape}, attn_mask shape: {attn_mask.shape}, labels shape: {labels.shape}, feat_in shapes: {[f.shape for f in feat_in]}, vid_grid: {vid_grid}, pool_level: {pool_level}")
     out    = base_model(
         input_ids=input_ids,
         attention_mask=attn_mask,
         labels=labels,
         feature_inputs=feat_in,
-        deepstack_feature_inputs=ds_in,
+        deepstack_feature_inputs=None,
         video_grid_thw=vid_grid,
     )
     lm_loss = out.loss
@@ -175,6 +176,7 @@ def main():
     print("Loading model ...")
     model = Qwen3VLWithOfflineFeatures.from_pretrained(
         MODEL_NAME, torch_dtype=torch.bfloat16, device_map="auto",
+        attn_implementation="flash_attention_2",
     )
 
     # --- apply LoRA ---
