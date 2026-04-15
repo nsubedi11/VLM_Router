@@ -281,7 +281,7 @@ def main():
     subset = [
         item for item in all_data
         if item["video"] and all(
-            load_precomputed_for_video(vp) is not None for vp in item["video"]
+            os.path.exists(video_feat_path(vp, feat_dir=feat_dir)) for vp in item["video"]
         )
     ]
     print(f"Samples with precomputed features: {len(subset)} / {len(all_data)}")

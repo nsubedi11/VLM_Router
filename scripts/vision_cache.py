@@ -26,14 +26,15 @@ from typing import Optional, Union, List, Dict, Any
 from qwen_vl_utils import extract_vision_info, fetch_image, fetch_video
 from PIL import Image
 
-FEAT_DIR="/scratch/rai/vast1/alhalah/users/nikesh/qwen3vl_proj/features/qwen_video"
+# FEAT_DIR="/scratch/rai/vast1/alhalah/users/nikesh/qwen3vl_proj/features/qwen_video"
 
 # Use absolute path
-FEAT_DIR = "/scratch/rai/vast1/alhalah/users/nikesh/qwen3vl_proj/features/qwen_video"
+FEAT_DIR = "/scratch/rai/vast1/alhalah/users/nikesh/qwen3vl_proj/features/qwen_video_extra_subsampled"
 
 
 def video_feat_path(video_path: str, feat_dir: str = FEAT_DIR) -> str:
     """Derive a canonical cache path for a video's preprocessed tensor."""
+    print(f"[DEBUG vision_cache] video_path={video_path}  feat_dir={feat_dir}")
     key = hashlib.md5(os.path.abspath(video_path).encode()).hexdigest()
     return os.path.join(feat_dir, f"{key}.pt")
 

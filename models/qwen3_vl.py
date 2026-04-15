@@ -242,6 +242,7 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
         # Offline feature arguments
         feature_inputs: Optional[List[torch.FloatTensor]] = None,        # one tensor per video
         deepstack_feature_inputs: Optional[List[List[torch.FloatTensor]]] = None,  # [layer][video]
+        use_fixed_pooling: int = -1,
         **kwargs,
     ):
         if feature_inputs is None:
@@ -302,6 +303,12 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
         else:
             pool_level = 0
         # # print(f"[DEBUG resolution routing] pool_level={pool_level} ")
+    
+        if use_fixed_pooling >= 0:
+            pool_level = use_fixed_pooling
+            print(f"[DEBUG resolution routing] using fixed pool_level={pool_level} ")
+
+        self._last_pool_level = pool_level
 
         if pool_level > 0:
             (feature_inputs, video_grid_thw,
@@ -449,6 +456,7 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
         cache_position=None,
         feature_inputs=None,
         deepstack_feature_inputs=None,
+        use_fixed_pooling: int = -1,
         **kwargs,
     ):
         model_inputs = super().prepare_inputs_for_generation(
@@ -472,6 +480,7 @@ class Qwen3VLWithOfflineFeatures(Qwen3VLForConditionalGeneration):
         if is_prefill:
             model_inputs["feature_inputs"] = feature_inputs
             model_inputs["deepstack_feature_inputs"] = deepstack_feature_inputs
+            model_inputs["use_fixed_pooling"] = use_fixed_pooling
         else:
             model_inputs["feature_inputs"] = None
             model_inputs["deepstack_feature_inputs"] = None
