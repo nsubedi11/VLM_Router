@@ -20,6 +20,7 @@ data/
 features/
 outputs/
 results/
+prev_results/
 
 # Logs
 logs/
