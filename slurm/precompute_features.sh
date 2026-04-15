@@ -22,8 +22,17 @@ conda activate qwen
 
 export HF_HOME=/scratch/rai/vast1/alhalah/users/nikesh/models
 
+FEAT_DIR=${FEAT_DIR:-/scratch/rai/vast1/alhalah/users/nikesh/qwen3vl_proj/features/qwen_video_subsampled}
+RESIZED_HEIGHT=${RESIZED_HEIGHT:-360}
+FPS=${FPS:-0.5}
+MAX_FRAMES=${MAX_FRAMES:-384}
+
 python -u scripts/precompute_features.py \
     --model Qwen/Qwen3-VL-2B-Instruct \
     --part $SLURM_ARRAY_TASK_ID \
     --total-parts $TOTAL_PARTS \
-    --device cuda
+    --device cuda \
+    --feat-dir "$FEAT_DIR" \
+    --resized-height "$RESIZED_HEIGHT" \
+    --fps "$FPS" \
+    --max-frames "$MAX_FRAMES"

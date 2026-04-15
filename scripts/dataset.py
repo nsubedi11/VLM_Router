@@ -19,7 +19,7 @@ from models.qwen3_vl import Qwen3VLProcessorWithPrecomputed
 
 
 RESIZED_HEIGHT = 480
-FPS            = 1
+FPS            = 0.5
 
 
 class VideoQADataset(Dataset):
@@ -69,7 +69,7 @@ class VideoQADataset(Dataset):
                 continue
             self.samples.append(sample)
 
-        print(f"  {len(self.samples)} samples built  ({skipped} skipped — missing features)")
+        print(f"  {len(self.samples)} samples built  ({skipped} skipped — missing features or seq_len > 30k)")
         print(f"  NOTE: visual features are loaded from disk per step (not cached in RAM)")
 
         if cache_path:
@@ -126,6 +126,9 @@ class VideoQADataset(Dataset):
         # Full sequence = user turn + answer
         full_ids  = torch.cat([proc_out["input_ids"][0], answer_tokens]).unsqueeze(0)
         full_mask = torch.ones(1, full_ids.shape[1], dtype=torch.long)
+
+        if full_ids.shape[1] > 30_000:
+            return None
 
         return {
             "input_ids":      full_ids,

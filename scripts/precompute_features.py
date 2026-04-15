@@ -22,6 +22,7 @@ import sys
 import json
 import argparse
 
+import subprocess
 import torch
 from tqdm import tqdm
 
@@ -36,9 +37,33 @@ from qwen_vl_utils import process_vision_info
 from transformers import AutoProcessor
 from models.qwen3_vl import Qwen3VLWithOfflineFeatures
 
-SPLITS_DIR = "splits/split_80_10_10"
+SPLITS_DIR     = "splits/split_70_15_15"
 RESIZED_HEIGHT = 360
-FPS = 0.5
+FPS            = 0.5
+MAX_FRAMES     = 384
+
+
+def get_video_duration(video_path: str) -> float:
+    """Return video duration in seconds using ffprobe."""
+    result = subprocess.run(
+        [
+            "ffprobe", "-v", "error",
+            "-show_entries", "format=duration",
+            "-of", "default=noprint_wrappers=1:nokey=1",
+            video_path,
+        ],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    return float(result.stdout.strip())
+
+
+def dynamic_fps(duration: float, target_fps: float = FPS, max_frames: int = MAX_FRAMES) -> float:
+    """Return fps that yields at most max_frames, capped at target_fps."""
+    if duration <= 0:
+        return target_fps
+    return min(target_fps, max_frames / duration)
 
 
 # ---------------------------------------------------------------------------
@@ -70,17 +95,27 @@ def collect_videos() -> list[str]:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--model",
-        default="Qwen/Qwen3-VL-2B-Instruct",
-        help="HuggingFace model name or local path",
-    )
+    parser.add_argument("--model", default="Qwen/Qwen3-VL-2B-Instruct",
+                        help="HuggingFace model name or local path")
     parser.add_argument("--part", type=int, default=0,
                         help="0-indexed shard index (for SLURM array jobs)")
     parser.add_argument("--total-parts", type=int, default=1,
                         help="Total number of shards")
     parser.add_argument("--device", default="cuda")
+    parser.add_argument("--feat-dir", default=FEAT_DIR,
+                        help="Output directory for .pt feature files")
+    parser.add_argument("--resized-height", type=int, default=RESIZED_HEIGHT,
+                        help="Frame height to resize to before encoding")
+    parser.add_argument("--fps", type=float, default=FPS,
+                        help="Target frames per second (dynamically reduced if video is long)")
+    parser.add_argument("--max-frames", type=int, default=MAX_FRAMES,
+                        help="Max frames to sample; if fps*duration > max-frames, "
+                             "fps is lowered to sample uniformly at max-frames")
     args = parser.parse_args()
+
+    feat_dir       = args.feat_dir
+    resized_height = args.resized_height
+    fps            = args.fps
 
     if args.part >= args.total_parts:
         raise ValueError(f"--part ({args.part}) must be < --total-parts ({args.total_parts})")
@@ -104,27 +139,35 @@ def main():
     # ------------------------------------------------------------------
     # Shard selection
     # ------------------------------------------------------------------
-    os.makedirs(FEAT_DIR, exist_ok=True)
-    all_videos = collect_videos()
+    os.makedirs(feat_dir, exist_ok=True)
+    all_videos  = collect_videos()
     video_paths = all_videos[args.part :: args.total_parts]
 
     print(
         f"Part {args.part + 1}/{args.total_parts} — "
-        f"{len(video_paths)} / {len(all_videos)} videos"
+        f"{len(video_paths)} / {len(all_videos)} videos  "
+        f"(height={resized_height}, fps={fps}, max_frames={args.max_frames}, feat_dir={feat_dir})"
     )
 
     skipped = 0
     errors: list[tuple[str, str]] = []
 
     for vp in tqdm(video_paths, desc=f"part {args.part}"):
-        feat_path = video_feat_path(vp)
+        feat_path = video_feat_path(vp, feat_dir=feat_dir)
         if os.path.exists(feat_path):
             skipped += 1
             continue
 
         try:
             # ----------------------------------------------------------
-            # 1. Build a single-video message and run qwen_vl_utils
+            # 1. Compute effective fps: 0.5 fps but cap at MAX_FRAMES
+            #    frames total (uniform sampling for long videos).
+            # ----------------------------------------------------------
+            duration = get_video_duration(vp)
+            eff_fps  = dynamic_fps(duration, target_fps=fps, max_frames=args.max_frames)
+
+            # ----------------------------------------------------------
+            # 2. Build a single-video message and run qwen_vl_utils
             #    process_vision_info to get preprocessed frames + metadata.
             #    This mirrors the preprocessing done at eval time.
             # ----------------------------------------------------------
@@ -133,8 +176,8 @@ def main():
                 "content": [{
                     "type": "video",
                     "video": vp,
-                    "resized_height": RESIZED_HEIGHT,
-                    "fps": FPS,
+                    "resized_height": resized_height,
+                    "fps": eff_fps,
                     "min_pixels": 16 * 28 * 28,
                     "max_pixels": 128 * 28 * 28,
                 }],

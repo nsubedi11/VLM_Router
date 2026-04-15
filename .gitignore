@@ -47,3 +47,5 @@ Thumbs.db
 *.swo
 
 CrossVid/
+cache/
+checkpoints/
