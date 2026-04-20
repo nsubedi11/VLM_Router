@@ -81,12 +81,15 @@ FEAT_DIR    = "/scratch/rai/vast1/alhalah/users/nikesh/qwen3vl_proj/features/qwe
 CACHE_DIR   = "/scratch/rai/vast1/alhalah/users/nikesh/qwen3vl_proj/cache/joint_dataset"
 CKPT_DIR    = "checkpoints/joint"
 
-EPOCHS             = 3
+EPOCHS             = 8
+ROUTER_WARMUP_EPOCHS = 6
 BATCH_SIZE         = 1
 LR_LORA            = 2e-4
 LR_ROUTER          = 1e-4
 GRAD_CLIP          = 1.0
 ROUTER_LOSS_WEIGHT = 0.1
+POOL_BONUS         = 0.1   # reward added per pool level to encourage pooling
+ENTROPY_COEF       = 0.01  # entropy bonus to keep router exploring
 
 LORA_R       = 16
 LORA_ALPHA   = 32
@@ -110,15 +113,18 @@ def make_labels(seq_len: int, answer_tokens: torch.Tensor, device) -> torch.Tens
 # ---------------------------------------------------------------------------
 # Single forward step (shared by train and val)
 # ---------------------------------------------------------------------------
-def forward_step(sample, model, embed_fn, router, cfg, device, train: bool):
+def forward_step(sample, model, embed_fn, router, cfg, device, train: bool,
+                 fixed_pool_level: int = -1, use_router_logits: bool = True):
     """
     One forward pass through the router + pooling + language model.
 
-    model    — peft_model with device_map spreading layers across all GPUs.
-    embed_fn — embedding layer (on GPU 0); router uses it read-only.
+    model            — peft_model with device_map spreading layers across all GPUs.
+    embed_fn         — embedding layer (on GPU 0); router uses it read-only.
+    fixed_pool_level — if >= 0, bypass the router and always use this pool level.
+    use_router_logits — if False, sample pool_level uniformly and skip the router.
 
-    During training  (train=True):  router samples stochastically.
-    During validation (train=False): router picks argmax.
+    During training  (train=True):  router samples stochastically (when enabled).
+    During validation (train=False): router picks argmax (when enabled).
     """
     input_ids = sample["input_ids"].to(device)
     attn_mask = sample["attention_mask"].to(device)
@@ -130,16 +136,25 @@ def forward_step(sample, model, embed_fn, router, cfg, device, train: bool):
 
     pad_id = getattr(cfg, "pad_token_id", 0) or 0
 
-    # Step 1: extract query tokens for the router
-    query_ids = extract_query_ids(input_ids, cfg.vision_end_token_id, pad_id)
+    use_fixed = fixed_pool_level >= 0
 
-    # Step 2: router predicts pool_level
-    logits = router(query_ids, embed_fn)   # [1, 3]
-
-    if train:
-        pool_level = int(torch.distributions.Categorical(logits=logits).sample().item())
+    if use_fixed:
+        pool_level = fixed_pool_level
+        logits     = None
+    elif not use_router_logits:
+        pool_level = int(torch.randint(0, 3, (1,)).item())
+        logits     = None
     else:
-        pool_level = int(logits.argmax(dim=-1).item())
+        # Step 1: extract query tokens for the router
+        query_ids = extract_query_ids(input_ids, cfg.vision_end_token_id, pad_id)
+
+        # Step 2: router predicts pool_level
+        logits = router(query_ids, embed_fn)   # [1, 3]
+
+        if train:
+            pool_level = int(torch.distributions.Categorical(logits=logits).sample().item())
+        else:
+            pool_level = int(logits.argmax(dim=-1).item())
 
     # Step 3: apply visual token pooling if needed
     if pool_level > 0:
@@ -166,10 +181,18 @@ def forward_step(sample, model, embed_fn, router, cfg, device, train: bool):
 
     result = {"lm_loss": lm_loss, "labels": labels, "pool_level": pool_level}
 
-    if train:
+    if train and logits is not None:
         log_prob = F.log_softmax(logits, dim=-1)[0, pool_level]
-        # lm_loss is on the last GPU; move to router device (GPU 0) for the scalar multiply
-        result["router_loss"] = log_prob * lm_loss.detach().to(log_prob.device)
+        lm_loss_scalar = lm_loss.detach().to(log_prob.device)
+        # Entropy bonus keeps the router from collapsing to a single level
+        entropy = torch.distributions.Categorical(logits=logits).entropy()
+        
+        # REINFORCE reward: penalise high lm_loss, bonus for choosing higher pool level entropy bonus
+        reward = -lm_loss_scalar + POOL_BONUS * pool_level + ENTROPY_COEF * entropy
+        # -log_prob * reward - ENTROPY_COEF * entropy 
+        # result["router_loss"] = -log_prob * -lm_loss_scalar
+        result["router_loss"] =  -log_prob * reward
+        result["router_entropy"] = entropy.detach()
 
     return result
 
@@ -196,11 +219,22 @@ def main():
     parser.add_argument("--ckpt-dir",    default=CKPT_DIR)
     parser.add_argument("--wandb-project", default="vlm_router")
     parser.add_argument("--wandb-run",     default=None)
+    parser.add_argument(
+        "--fixed-pool-level", type=int, default=-1,
+        help="Fix pool level for all samples (0/1/2). "
+             "-1 (default) uses the router to choose adaptively.",
+    )
     args = parser.parse_args()
 
-    feat_dir  = args.feat_dir
-    cache_dir = args.cache_dir
-    ckpt_dir  = args.ckpt_dir
+    feat_dir        = args.feat_dir
+    cache_dir       = args.cache_dir
+    fixed_pool_level = args.fixed_pool_level
+
+    # Append pool-level suffix to checkpoint dir so runs are self-documenting.
+    if fixed_pool_level >= 0:
+        ckpt_dir = f"{args.ckpt_dir}_fixed_pool_{fixed_pool_level}"
+    else:
+        ckpt_dir = args.ckpt_dir
 
     # --- Single-process Accelerate + device_map pipeline parallelism ---
     # The model is loaded with device_map="auto" which assigns transformer layers
@@ -224,7 +258,10 @@ def main():
                 lora_alpha=LORA_ALPHA,
                 grad_clip=GRAD_CLIP,
                 router_loss_weight=ROUTER_LOSS_WEIGHT,
+                pool_bonus=POOL_BONUS,
+                entropy_coef=ENTROPY_COEF,
                 feat_dir=feat_dir,
+                fixed_pool_level=fixed_pool_level,
             ),
         )
 
@@ -328,26 +365,46 @@ def main():
             print(msg)
             log_file.write(msg + "\n")
 
+    if fixed_pool_level >= 0:
+        log(f"[MODE] Fixed pool level={fixed_pool_level}  (router bypassed, no router_loss)")
+    else:
+        log(
+            "[MODE] Warm up the LLM with random pool levels for "
+            f"{ROUTER_WARMUP_EPOCHS} epochs, then enable router-based routing"
+        )
+    log(f"[CKPT] Saving to: {ckpt_dir}")
+
     log(f"{'epoch':>6} {'split':>6} {'lm_loss':>9} {'rt_loss':>9} "
         f"{'lr_lm':>9} {'lr_rt':>9} {'grad_norm':>10} {'levels':>14}")
 
     for epoch in range(1, EPOCHS + 1):
+        use_router_logits = fixed_pool_level < 0 and epoch > ROUTER_WARMUP_EPOCHS
+        router_is_training = use_router_logits
 
         # ---- training ----
         train_model.train()
-        router.train()
+        if router_is_training:
+            router.train()
+        else:
+            router.eval()
         total_lm = total_rt = total_gnorm = 0.0
         level_counts = [0, 0, 0]
         t0 = time.time()
 
         bar = tqdm(train_loader, desc=f"Epoch {epoch} [train]", disable=not is_main)
         for step_idx, sample in enumerate(bar, 1):
-            r = forward_step(sample, train_model, embed_fn, router, cfg, device, train=True)
+            r = forward_step(sample, train_model, embed_fn, router, cfg, device, train=True,
+                             fixed_pool_level=fixed_pool_level,
+                             use_router_logits=use_router_logits)
 
-            lm_loss = r["lm_loss"]
+            lm_loss    = r["lm_loss"]
+            rt_loss    = r.get("router_loss")   # None when fixed_pool_level >= 0
 
-            # router_loss is on GPU 0; lm_loss is on last GPU — align before summing
-            total_loss = lm_loss + ROUTER_LOSS_WEIGHT * r["router_loss"].to(lm_loss.device)
+            if rt_loss is not None:
+                # router_loss is on GPU 0; lm_loss is on last GPU — align before summing
+                total_loss = lm_loss + ROUTER_LOSS_WEIGHT * rt_loss.to(lm_loss.device)
+            else:
+                total_loss = lm_loss
 
             opt_lm.zero_grad()
             opt_rt.zero_grad()
@@ -355,29 +412,34 @@ def main():
             gnorm = float(torch.nn.utils.clip_grad_norm_(train_model.parameters(), GRAD_CLIP))
             torch.nn.utils.clip_grad_norm_(router.parameters(), GRAD_CLIP)
             opt_lm.step()
-            opt_rt.step()
+            if rt_loss is not None:
+                opt_rt.step()
+                sched_rt.step()
             sched_lm.step()
-            sched_rt.step()
 
             total_lm    += lm_loss.item()
-            total_rt    += r["router_loss"].item()
+            total_rt    += rt_loss.item() if rt_loss is not None else 0.0
             total_gnorm += gnorm
             level_counts[r["pool_level"]] += 1
 
             if is_main and HAS_WANDB:
                 global_step = (epoch - 1) * len(train_loader) + step_idx
-                wandb.log({
+                log_dict = {
                     "train/lm_loss":    lm_loss.item(),
-                    "train/router_loss": r["router_loss"].item(),
                     "train/grad_norm":  gnorm,
                     "train/pool_level": r["pool_level"],
                     "train/lr_lm":      sched_lm.get_last_lr()[0],
-                    "train/lr_router":  sched_rt.get_last_lr()[0],
-                }, step=global_step)
+                }
+                if rt_loss is not None:
+                    log_dict["train/router_loss"]    = rt_loss.item()
+                    log_dict["train/lr_router"]      = sched_rt.get_last_lr()[0]
+                    log_dict["train/router_entropy"] = r["router_entropy"].item()
+                wandb.log(log_dict, step=global_step)
 
             bar.set_postfix(
                 lm=f"{total_lm/step_idx:.4f}",
                 rt=f"{total_rt/step_idx:.4f}",
+                cur_rt=(f"{rt_loss.item():.4f}" if rt_loss is not None else "—"),
                 lvl=r["pool_level"],
                 gnorm=f"{gnorm:.2f}",
             )
@@ -386,10 +448,15 @@ def main():
         lr_lm   = sched_lm.get_last_lr()[0]
         lr_rt   = sched_rt.get_last_lr()[0]
         elapsed = time.time() - t0
+        train_mode = (
+            f"router@epoch>{ROUTER_WARMUP_EPOCHS}"
+            if use_router_logits else
+            "random_warmup"
+        )
 
         log(f"{epoch:>6} {'train':>6} {total_lm/n:>9.4f} {total_rt/n:>9.4f} "
             f"{lr_lm:>9.2e} {lr_rt:>9.2e} {total_gnorm/n:>10.3f} "
-            f"{str(level_counts):>14}  ({elapsed:.0f}s)")
+            f"{str(level_counts):>14}  ({elapsed:.0f}s, {train_mode})")
 
         if is_main and HAS_WANDB:
             wandb.log({
@@ -409,7 +476,9 @@ def main():
 
         with torch.no_grad():
             for sample in tqdm(val_loader, desc=f"Epoch {epoch} [val]  ", disable=not is_main):
-                r = forward_step(sample, train_model, embed_fn, router, cfg, device, train=False)
+                r = forward_step(sample, train_model, embed_fn, router, cfg, device, train=False,
+                                 fixed_pool_level=fixed_pool_level,
+                                 use_router_logits=use_router_logits)
                 lm_loss = r["lm_loss"]
                 val_lm += lm_loss.item()
                 val_levels[r["pool_level"]] += 1

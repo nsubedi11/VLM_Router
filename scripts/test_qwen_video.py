@@ -105,6 +105,7 @@ def main():
     print(f"Samples with precomputed features: {len(subset)} / {len(data)}")
     total = correct = 0
     fsa_results = []
+    pool_level_counts = {}
 
     with open(args.out_path, "w") as fout:
         for batch_start in tqdm(range(0, len(subset), BATCH_SIZE)):
@@ -146,6 +147,8 @@ def main():
                 )
 
                 pool_level = getattr(model, "_last_pool_level", None)
+                if pool_level is not None:
+                    pool_level_counts[pool_level] = pool_level_counts.get(pool_level, 0) + 1
                 for (sample_id, gt), response in zip(batch_meta, responses):
                     task = get_task(sample_id)
                     pred = extract_pred(response, task)
@@ -200,6 +203,8 @@ def main():
                 "mean_iou": round(mean_iou, 3),
                 "num_samples": len(fsa_results)
             }
+        if pool_level_counts:
+            summary["pool_level_counts"] = {str(k): v for k, v in sorted(pool_level_counts.items())}
         fout.write(json.dumps(summary) + "\n")
 
     if total > 0:

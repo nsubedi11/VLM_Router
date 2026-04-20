@@ -23,7 +23,7 @@ source ~/miniconda3/etc/profile.d/conda.sh
 conda activate qwen
 
 cd /scratch/rai/vast1/alhalah/kyungbok/VLM_Router
-python scripts/test_qwen_video.py -c /scratch/rai/vast1/alhalah/users/nikesh/qwen3vl_proj/checkpoints/extra_subsampled/best  --out_path results/test_qwen_video_offline_pool_router.json
+python scripts/test_qwen_video.py -c /scratch/rai/vast1/alhalah/users/nikesh/qwen3vl_proj/checkpoints/extra_subsampled/best  --out_path results/router_output.json
 
 
 

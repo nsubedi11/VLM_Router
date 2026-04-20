@@ -23,7 +23,14 @@ source ~/miniconda3/etc/profile.d/conda.sh
 conda activate qwen
 
 cd /scratch/rai/vast1/alhalah/kyungbok/VLM_Router
-python scripts/test_qwen_video.py --use_fixed_pooling 2 --out_path results/test_qwen_video_offline_pool2.json
+# python scripts/test_qwen_video.py -c /scratch/rai/vast1/alhalah/kyungbok/VLM_Router/checkpoints/extra_subsampled_fixed_pool_0/best --use_fixed_pooling 0 --out_path fixed_trained_results/pool0.json
+# python scripts/test_qwen_video.py -c /scratch/rai/vast1/alhalah/kyungbok/VLM_Router/checkpoints/extra_subsampled_fixed_pool_1/best --use_fixed_pooling 1 --out_path fixed_trained_results/pool1.json
+# python scripts/test_qwen_video.py -c /scratch/rai/vast1/alhalah/kyungbok/VLM_Router/checkpoints/extra_subsampled_fixed_pool_2/best --use_fixed_pooling 2 --out_path fixed_trained_results/pool2.json
+
+# reward
+# python scripts/test_qwen_video.py -c /scratch/rai/vast1/alhalah/kyungbok/VLM_Router/checkpoints/extra_subsampled --out_path results/reward.json
+# random 
+python scripts/test_qwen_video.py -c /scratch/rai/vast1/alhalah/kyungbok/VLM_Router/checkpoints/extra_subsampled/best --out_path results/reward.json
 
 
 
