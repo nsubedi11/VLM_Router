@@ -19,7 +19,7 @@ env/
 data/
 features/
 outputs/
-results/
+# results/
 prev_results/
 
 # Logs
@@ -41,6 +41,7 @@ slurm-*.err
 # OS
 .DS_Store
 Thumbs.db
+wandb
 
 # Misc
 *.tmp

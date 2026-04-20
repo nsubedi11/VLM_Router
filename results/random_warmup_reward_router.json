@@ -1,0 +1,857 @@
+{"id": "FSA_840", "pred_raw": "167,186", "gt": "207,219", "pred": "167,186", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_904", "pred_raw": "119,124", "gt": "131,138", "pred": "119,124", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PSS_45", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->2->4->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1494", "pred_raw": "355,445", "gt": "416,453", "pred": "355,445", "offline": true, "pool_level": 0, "iou": 0.296}
+{"id": "PEA_266", "pred_raw": "B\nThis is Video 2: <202.0>", "gt": "C", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_623", "pred_raw": "252,300", "gt": "252,305", "pred": "252,300", "offline": true, "pool_level": 0, "iou": 0.906}
+{"id": "FSA_1785", "pred_raw": "103,127", "gt": "48,57", "pred": "103,127", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "CC_186", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PEA_451", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_1050", "pred_raw": "D", "gt": "D", "pred": "D", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PSS_148", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->4->3->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1824", "pred_raw": "167,175", "gt": "400,467", "pred": "167,175", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "CC_438", "pred_raw": "A", "gt": "C", "pred": "A", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_458", "pred_raw": "C<375.1 seconds>", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_562", "pred_raw": "A", "gt": "B", "pred": "A", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_1940", "pred_raw": "113,123", "gt": "114,121", "pred": "113,123", "offline": true, "pool_level": 0, "iou": 0.7}
+{"id": "NC_877", "pred_raw": "B 41.4 seconds", "gt": "C", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1242", "pred_raw": "100,105", "gt": "100,150", "pred": "100,105", "offline": true, "pool_level": 0, "iou": 0.1}
+{"id": "FSA_496", "pred_raw": "115,127", "gt": "105,114", "pred": "115,127", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "NC_747", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "CC_150", "pred_raw": "D", "gt": "D", "pred": "D", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_1127", "pred_raw": "250,260", "gt": "251,260", "pred": "250,260", "offline": true, "pool_level": 0, "iou": 0.9}
+{"id": "PEA_486", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_524", "pred_raw": "A", "gt": "D", "pred": "A", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_726", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_5", "pred_raw": "119,139", "gt": "50,63", "pred": "119,139", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_822", "pred_raw": "259,278", "gt": "34,40", "pred": "259,278", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_1135", "pred_raw": "112,125", "gt": "91,124", "pred": "112,125", "offline": true, "pool_level": 0, "iou": 0.353}
+{"id": "FSA_1059", "pred_raw": "65,70", "gt": "79,97", "pred": "65,70", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PEA_747", "pred_raw": "B<300.0>400.0", "gt": "B", "pred": "B", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1916", "pred_raw": "85,129", "gt": "67,138", "pred": "85,129", "offline": true, "pool_level": 0, "iou": 0.62}
+{"id": "NC_100", "pred_raw": "D", "gt": "B", "pred": "D", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_56", "pred_raw": "C\n</162.7 seconds>27.5 seconds>28.5 seconds>29.5 seconds>29.5 seconds>29.5 seconds>29.5 seconds>29.5 seconds>29.5 seconds>29.5 seconds>29.5 seconds>29.5 seconds>29.5 seconds>29.5 seconds>29.5 seconds>29", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1235", "pred_raw": "118,139", "gt": "113,140", "pred": "118,139", "offline": true, "pool_level": 0, "iou": 0.778}
+{"id": "PSS_89", "pred_raw": "444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444", "gt": "5->2->1->3->4->6", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_811", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1747", "pred_raw": "124,134", "gt": "127,134", "pred": "124,134", "offline": true, "pool_level": 0, "iou": 0.7}
+{"id": "NC_576", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "NC_432", "pred_raw": "A", "gt": "A", "pred": "A", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PEA_665", "pred_raw": "C>27.2>28.2>29.2>30.2>31.2>32.2>33.2>34.2>35.2>36.2>37.2>38.2>39.2>40.2>41.2>42.2>43.2>44.2>45.2", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_252", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PSS_22", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->4->2->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_115", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PEA_894", "pred_raw": "B <28.0 seconds>29.5 seconds\n\n29.5 seconds\n\n29.5 seconds", "gt": "B", "pred": "B", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_229", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "5->2->1->3->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_170", "pred_raw": "64,85", "gt": "66,75", "pred": "64,85", "offline": true, "pool_level": 0, "iou": 0.429}
+{"id": "PEA_281", "pred_raw": "A\n\n", "gt": "B", "pred": "A", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_844", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_8", "pred_raw": "C>44.1 seconds>44.1 seconds>", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_39", "pred_raw": "B\n\nThis is Video 2: <175>", "gt": "D", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_736", "pred_raw": "B1224.256.267.286.307.318.329.129.130.131.132.133.134.135.136.137.138.139.140.141.142.143.144.14", "gt": "A", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_2102", "pred_raw": "300,305", "gt": "296,310", "pred": "300,305", "offline": true, "pool_level": 0, "iou": 0.357}
+{"id": "FSA_1511", "pred_raw": "193,206", "gt": "195,220", "pred": "193,206", "offline": true, "pool_level": 0, "iou": 0.407}
+{"id": "FSA_2043", "pred_raw": "122,156", "gt": "126,140", "pred": "122,156", "offline": true, "pool_level": 0, "iou": 0.412}
+{"id": "PEA_683", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1180", "pred_raw": "59,67", "gt": "59,67", "pred": "59,67", "offline": true, "pool_level": 0, "iou": 1.0}
+{"id": "PEA_190", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_405", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "3->2->4->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_732", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_1603", "pred_raw": "84,106", "gt": "85,110", "pred": "84,106", "offline": true, "pool_level": 0, "iou": 0.808}
+{"id": "CC_195", "pred_raw": "A", "gt": "B", "pred": "A", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_566", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "2->3->1->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_793", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_204", "pred_raw": "B", "gt": "C", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PEA_306", "pred_raw": "B24.2 seconds>", "gt": "B", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_523", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "2->5->1->4->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_929", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_637", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_931", "pred_raw": "189,205", "gt": "194,205", "pred": "189,205", "offline": true, "pool_level": 0, "iou": 0.688}
+{"id": "FSA_96", "pred_raw": "99,124", "gt": "99,123", "pred": "99,124", "offline": true, "pool_level": 0, "iou": 0.96}
+{"id": "PI_174", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_393", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "3->5->2->1->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_699", "pred_raw": "105,110", "gt": "89,107", "pred": "105,110", "offline": true, "pool_level": 0, "iou": 0.095}
+{"id": "FSA_30", "pred_raw": "56,65", "gt": "72,83", "pred": "56,65", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_1563", "pred_raw": "125,133", "gt": "105,125", "pred": "125,133", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_1748", "pred_raw": "166,172", "gt": "158,174", "pred": "166,172", "offline": true, "pool_level": 0, "iou": 0.375}
+{"id": "PSS_136", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "4->3->1->5->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_237", "pred_raw": "104,156", "gt": "0,74", "pred": "104,156", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_1978", "pred_raw": "185,199", "gt": "186,193", "pred": "185,199", "offline": true, "pool_level": 0, "iou": 0.5}
+{"id": "PEA_926", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_411", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_26", "pred_raw": "444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444", "gt": "6->3->4->2->1->5", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_233", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_828", "pred_raw": "B<20.8>28.8", "gt": "A", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_1177", "pred_raw": "C\n\n<41.0 seconds>", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_141", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_885", "pred_raw": "203,216", "gt": "118,145", "pred": "203,216", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_1234", "pred_raw": "226,238", "gt": "222,229", "pred": "226,238", "offline": true, "pool_level": 0, "iou": 0.188}
+{"id": "FSA_1114", "pred_raw": "49,55", "gt": "43,56", "pred": "49,55", "offline": true, "pool_level": 0, "iou": 0.462}
+{"id": "PEA_386", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1762", "pred_raw": "219,224", "gt": "204,229", "pred": "219,224", "offline": true, "pool_level": 0, "iou": 0.2}
+{"id": "PSS_277", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "2->3->1->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_237", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "3->2->4->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_395", "pred_raw": "C>24.2 seconds>25.0 seconds>26.0 seconds>27.0 seconds>28.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_480", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "4->1->5->3->2->6", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_781", "pred_raw": "B", "gt": "C", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_1446", "pred_raw": "137,144", "gt": "129,144", "pred": "137,144", "offline": true, "pool_level": 0, "iou": 0.467}
+{"id": "NC_83", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_1767", "pred_raw": "216,238", "gt": "216,240", "pred": "216,238", "offline": true, "pool_level": 0, "iou": 0.917}
+{"id": "PEA_681", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_2097", "pred_raw": "152,173", "gt": "159,183", "pred": "152,173", "offline": true, "pool_level": 0, "iou": 0.452}
+{"id": "PEA_708", "pred_raw": "C>25.0 seconds>", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_2", "pred_raw": "119,139", "gt": "40,70", "pred": "119,139", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PEA_534", "pred_raw": "B\nThis is Video 2: <202.0>", "gt": "A", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_120", "pred_raw": "27,47", "gt": "28,41", "pred": "27,47", "offline": true, "pool_level": 0, "iou": 0.65}
+{"id": "PEA_155", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1208", "pred_raw": "311,337", "gt": "91,160", "pred": "311,337", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "CC_705", "pred_raw": "C<423.8 seconds>241.8 seconds>242.8 seconds>243.8 seconds>244.8 seconds>245.8 seconds>246.8 seconds>247.8 seconds>248.8 seconds>249.8 seconds>250.8 seconds>251.8 seconds>252.8 seconds>253", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PI_127", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_112", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "2->3->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_235", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PI_220", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_377", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "4->3->2->1->5", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1882", "pred_raw": "56,61", "gt": "52,60", "pred": "56,61", "offline": true, "pool_level": 0, "iou": 0.444}
+{"id": "PSS_95", "pred_raw": "333", "gt": "5->1->3->6->2->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_415", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_906", "pred_raw": "125,157", "gt": "125,150", "pred": "125,157", "offline": true, "pool_level": 0, "iou": 0.781}
+{"id": "PEA_702", "pred_raw": "C<41.8 seconds>", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_1073", "pred_raw": "B", "gt": "A", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PEA_429", "pred_raw": "A\n\n", "gt": "C", "pred": "A", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PI_105", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_616", "pred_raw": "B", "gt": "A", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_2067", "pred_raw": "185,190", "gt": "185,218", "pred": "185,190", "offline": true, "pool_level": 0, "iou": 0.152}
+{"id": "FSA_782", "pred_raw": "293,319", "gt": "189,205", "pred": "293,319", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_1022", "pred_raw": "34,41", "gt": "34,40", "pred": "34,41", "offline": true, "pool_level": 0, "iou": 0.857}
+{"id": "FSA_1174", "pred_raw": "155,178", "gt": "177,234", "pred": "155,178", "offline": true, "pool_level": 0, "iou": 0.013}
+{"id": "FSA_1622", "pred_raw": "52,67", "gt": "52,68", "pred": "52,67", "offline": true, "pool_level": 0, "iou": 0.938}
+{"id": "PEA_630", "pred_raw": "B2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2", "gt": "C", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1488", "pred_raw": "296,304", "gt": "182,194", "pred": "296,304", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "CC_658", "pred_raw": "C<41.3 seconds>", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_781", "pred_raw": "145,182", "gt": "147,182", "pred": "145,182", "offline": true, "pool_level": 0, "iou": 0.946}
+{"id": "CC_469", "pred_raw": "C>24.9 seconds>22.22 seconds>24.9 seconds", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_980", "pred_raw": "119,146", "gt": "108,131", "pred": "119,146", "offline": true, "pool_level": 0, "iou": 0.316}
+{"id": "FSA_181", "pred_raw": "106,126", "gt": "102,132", "pred": "106,126", "offline": true, "pool_level": 0, "iou": 0.667}
+{"id": "FSA_765", "pred_raw": "246,260", "gt": "118,135", "pred": "246,260", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "CC_80", "pred_raw": "D", "gt": "D", "pred": "D", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_1229", "pred_raw": "41,44", "gt": "41,44", "pred": "41,44", "offline": true, "pool_level": 0, "iou": 1.0}
+{"id": "PSS_236", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->2->4->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_103", "pred_raw": "D", "gt": "A", "pred": "D", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_9", "pred_raw": "75,96", "gt": "58,71", "pred": "75,96", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PSS_310", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "2->3->5->4->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_804", "pred_raw": "B", "gt": "A", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_249", "pred_raw": "187,205", "gt": "184,216", "pred": "187,205", "offline": true, "pool_level": 0, "iou": 0.562}
+{"id": "PSS_545", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "5->3->4->1->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1578", "pred_raw": "127,134", "gt": "163,172", "pred": "127,134", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_58", "pred_raw": "93,102", "gt": "79,92", "pred": "93,102", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "NC_363", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_1850", "pred_raw": "108,156", "gt": "127,156", "pred": "108,156", "offline": true, "pool_level": 0, "iou": 0.604}
+{"id": "PSS_587", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->3->5->2->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_2132", "pred_raw": "96,110", "gt": "55,78", "pred": "96,110", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PEA_888", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_50", "pred_raw": "B", "gt": "B", "pred": "B", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PEA_407", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_2064", "pred_raw": "262,280", "gt": "262,278", "pred": "262,280", "offline": true, "pool_level": 0, "iou": 0.889}
+{"id": "NC_908", "pred_raw": "D", "gt": "D", "pred": "D", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PEA_42", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_463", "pred_raw": "137,144", "gt": "132,152", "pred": "137,144", "offline": true, "pool_level": 0, "iou": 0.35}
+{"id": "FSA_288", "pred_raw": "80,96", "gt": "85,93", "pred": "80,96", "offline": true, "pool_level": 0, "iou": 0.5}
+{"id": "PSS_46", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "3->1->2->5->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PI_20", "pred_raw": "D", "gt": "D", "pred": "D", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_210", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_1954", "pred_raw": "201,210", "gt": "92,108", "pred": "201,210", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PSS_223", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "5->4->2->3->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PI_13", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "CC_557", "pred_raw": "C<296.2>273.2>", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_520", "pred_raw": "333", "gt": "3->4->5->1->2->6", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_2188", "pred_raw": "356,390", "gt": "356,393", "pred": "356,390", "offline": true, "pool_level": 0, "iou": 0.919}
+{"id": "FSA_2177", "pred_raw": "119,147", "gt": "123,148", "pred": "119,147", "offline": true, "pool_level": 0, "iou": 0.828}
+{"id": "CC_590", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_235", "pred_raw": "403,427", "gt": "399,425", "pred": "403,427", "offline": true, "pool_level": 0, "iou": 0.786}
+{"id": "PEA_517", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_141", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "5->3->4->2->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_203", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1834", "pred_raw": "143,150", "gt": "146,160", "pred": "143,150", "offline": true, "pool_level": 0, "iou": 0.235}
+{"id": "CC_153", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_1093", "pred_raw": "93,116", "gt": "93,118", "pred": "93,116", "offline": true, "pool_level": 0, "iou": 0.92}
+{"id": "CC_250", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PEA_372", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "CC_464", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "NC_166", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PEA_51", "pred_raw": "B\n\nThe video 2: 27.0 seconds>", "gt": "B", "pred": "B", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_80", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->2->5->4->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_254", "pred_raw": "C>371.7 seconds>371.7 seconds>371.7 seconds>371.7 seconds>371.7 seconds>371.7 seconds>371.7 seconds>371.7 seconds>371.7 seconds>372.7 seconds>372.7 seconds>373.7 seconds>374.7 seconds>375", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_349", "pred_raw": "C>272.5 seconds>273.5 seconds>274.5 seconds>275.5 seconds>276.5 seconds>277.5 seconds>278.5 seconds>279.5 seconds>280.5 seconds>281.5 seconds>282.5 seconds>283.5 seconds>284.5 seconds>285", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_800", "pred_raw": "A\n\nYour answer: 275.3 282.", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_254", "pred_raw": "C>26.2>27.2>28.2>29.2>30.2>31.2>32.2>33.2>34.2>35.2>36.2>37.2>38.2>39.2>40.2>41.2>42.2>43.2>44.2", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_80", "pred_raw": "24,38", "gt": "17,47", "pred": "24,38", "offline": true, "pool_level": 0, "iou": 0.467}
+{"id": "NC_536", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PSS_495", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "3->4->2->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_158", "pred_raw": "A", "gt": "A", "pred": "A", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_1066", "pred_raw": "36,41", "gt": "24,40", "pred": "36,41", "offline": true, "pool_level": 0, "iou": 0.235}
+{"id": "NC_997", "pred_raw": "D", "gt": "A", "pred": "D", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PEA_484", "pred_raw": "B<3.0><3.0>", "gt": "C", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_667", "pred_raw": "235,255", "gt": "238,251", "pred": "235,255", "offline": true, "pool_level": 0, "iou": 0.65}
+{"id": "PEA_697", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_9", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "5->2->3->1->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PI_229", "pred_raw": "B", "gt": "B", "pred": "B", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PI_142", "pred_raw": "D", "gt": "D", "pred": "D", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_938", "pred_raw": "299,305", "gt": "328,421", "pred": "299,305", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PEA_151", "pred_raw": "C>26.2>27.2>27.2>28.2>29.2>30.2>31.2>32.2>33.2>34.2>35.2>36.2>37.2>38.2>39.2>40.2>41.2>42.2>43.2", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PI_146", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_156", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "5->2->1->3->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_549", "pred_raw": "A\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_101", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "3->2->4->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_704", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_996", "pred_raw": "134,176", "gt": "84,107", "pred": "134,176", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "CC_327", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_725", "pred_raw": "293,315", "gt": "291,324", "pred": "293,315", "offline": true, "pool_level": 0, "iou": 0.667}
+{"id": "NC_1031", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "NC_222", "pred_raw": "C>371.0 seconds>371.0 seconds>371.0 seconds>371.0 seconds>371.0 seconds>371.0 seconds>371.0 seconds>371.0 seconds>371.0 seconds>371.0 seconds>371.0 seconds>371.0 seconds>371.0 seconds>371", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1837", "pred_raw": "127,146", "gt": "128,137", "pred": "127,146", "offline": true, "pool_level": 0, "iou": 0.474}
+{"id": "FSA_2062", "pred_raw": "162,174", "gt": "161,175", "pred": "162,174", "offline": true, "pool_level": 0, "iou": 0.857}
+{"id": "FSA_441", "pred_raw": "195,205", "gt": "41,82", "pred": "195,205", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "NC_220", "pred_raw": "C>27.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_579", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "4->3->1->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_261", "pred_raw": "C<104.0 seconds>202.0202.0202.0202.0202.0202.0202.0202.0202.0202.0202.0202.0202.0202.0202.0202.0202.020", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1042", "pred_raw": "93,106", "gt": "92,100", "pred": "93,106", "offline": true, "pool_level": 0, "iou": 0.5}
+{"id": "PSS_471", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "4->1->5->2->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_526", "pred_raw": "124,145", "gt": "160,207", "pred": "124,145", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PI_218", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_399", "pred_raw": "87,101", "gt": "83,101", "pred": "87,101", "offline": true, "pool_level": 0, "iou": 0.778}
+{"id": "NC_237", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PSS_602", "pred_raw": "333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333", "gt": "4->1->5->2->6->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_784", "pred_raw": "317,329", "gt": "42,66", "pred": "317,329", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PEA_653", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_215", "pred_raw": "C<202.8>27.0", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1213", "pred_raw": "315,330", "gt": "334,340", "pred": "315,330", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PEA_224", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_2155", "pred_raw": "58,71", "gt": "79,93", "pred": "58,71", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_1687", "pred_raw": "127,146", "gt": "128,146", "pred": "127,146", "offline": true, "pool_level": 0, "iou": 0.947}
+{"id": "FSA_1623", "pred_raw": "261,284", "gt": "266,281", "pred": "261,284", "offline": true, "pool_level": 0, "iou": 0.652}
+{"id": "FSA_646", "pred_raw": "305,336", "gt": "305,360", "pred": "305,336", "offline": true, "pool_level": 0, "iou": 0.564}
+{"id": "FSA_408", "pred_raw": "160,172", "gt": "160,174", "pred": "160,172", "offline": true, "pool_level": 0, "iou": 0.857}
+{"id": "PEA_864", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_95", "pred_raw": "124,137", "gt": "98,128", "pred": "124,137", "offline": true, "pool_level": 0, "iou": 0.103}
+{"id": "NC_48", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_1121", "pred_raw": "102,125", "gt": "223,270", "pred": "102,125", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_330", "pred_raw": "196,204", "gt": "198,203", "pred": "196,204", "offline": true, "pool_level": 0, "iou": 0.625}
+{"id": "FSA_1930", "pred_raw": "293,320", "gt": "285,302", "pred": "293,320", "offline": true, "pool_level": 0, "iou": 0.257}
+{"id": "NC_160", "pred_raw": "A\n\n<432.1 seconds>", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1998", "pred_raw": "151,160", "gt": "151,161", "pred": "151,160", "offline": true, "pool_level": 0, "iou": 0.9}
+{"id": "FSA_404", "pred_raw": "124,137", "gt": "111,135", "pred": "124,137", "offline": true, "pool_level": 0, "iou": 0.423}
+{"id": "FSA_655", "pred_raw": "44,50", "gt": "53,55", "pred": "44,50", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PEA_112", "pred_raw": "C>26.2>27.2>28.2>29.2>30.2>31.2>32.2>33.2>34.2>35.2>36.2>37.2>38.2>39.2>40.2>41.2>42.2>43.2>44.2", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_698", "pred_raw": "B", "gt": "B", "pred": "B", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_620", "pred_raw": "85,100", "gt": "86,104", "pred": "85,100", "offline": true, "pool_level": 0, "iou": 0.737}
+{"id": "FSA_1030", "pred_raw": "140,166", "gt": "95,172", "pred": "140,166", "offline": true, "pool_level": 0, "iou": 0.338}
+{"id": "FSA_1659", "pred_raw": "215,226", "gt": "216,254", "pred": "215,226", "offline": true, "pool_level": 0, "iou": 0.256}
+{"id": "PI_175", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_553", "pred_raw": "112,127", "gt": "113,143", "pred": "112,127", "offline": true, "pool_level": 0, "iou": 0.452}
+{"id": "FSA_612", "pred_raw": "198,221", "gt": "173,220", "pred": "198,221", "offline": true, "pool_level": 0, "iou": 0.458}
+{"id": "NC_729", "pred_raw": "B", "gt": "B", "pred": "B", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PEA_170", "pred_raw": "A", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "CC_467", "pred_raw": "C>73.8>73.8>73.8>73.8>73.8>74.0>74.0>74.0>74.0>74.0>74.0>74.0>74.0>74.0>74.0>74.0>74.0>74.0>74.0", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_351", "pred_raw": "106,113", "gt": "60,80", "pred": "106,113", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PEA_312", "pred_raw": "C>26.2>27.2>27.2>28.2>29.2>30.2>31.2>32.2>33.2>34.2>35.2>36.2>37.2>38.2>39.2>40.2>41.2>42.2>43.2", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_451", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PSS_540", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "4->3->5->1->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_978", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1638", "pred_raw": "136,147", "gt": "126,145", "pred": "136,147", "offline": true, "pool_level": 0, "iou": 0.429}
+{"id": "PI_84", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PI_216", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_643", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_338", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_758", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_929", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_817", "pred_raw": "127,140", "gt": "113,140", "pred": "127,140", "offline": true, "pool_level": 0, "iou": 0.481}
+{"id": "PEA_667", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_377", "pred_raw": "B<200.2>282.0", "gt": "A", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1183", "pred_raw": "58,67", "gt": "59,67", "pred": "58,67", "offline": true, "pool_level": 0, "iou": 0.889}
+{"id": "FSA_1484", "pred_raw": "100,124", "gt": "99,124", "pred": "100,124", "offline": true, "pool_level": 0, "iou": 0.96}
+{"id": "PEA_689", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_443", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_541", "pred_raw": "C<202.7>", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_900", "pred_raw": "149,166", "gt": "140,169", "pred": "149,166", "offline": true, "pool_level": 0, "iou": 0.586}
+{"id": "FSA_1102", "pred_raw": "25,30", "gt": "26,30", "pred": "25,30", "offline": true, "pool_level": 0, "iou": 0.8}
+{"id": "CC_519", "pred_raw": "B\n\n<114.2 seconds>", "gt": "B", "pred": "B", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_866", "pred_raw": "361,392", "gt": "365,393", "pred": "361,392", "offline": true, "pool_level": 0, "iou": 0.844}
+{"id": "PSS_150", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "5->1->3->2->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_709", "pred_raw": "98,109", "gt": "93,98", "pred": "98,109", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_1349", "pred_raw": "60,70", "gt": "61,75", "pred": "60,70", "offline": true, "pool_level": 0, "iou": 0.6}
+{"id": "FSA_2232", "pred_raw": "163,174", "gt": "153,172", "pred": "163,174", "offline": true, "pool_level": 0, "iou": 0.429}
+{"id": "FSA_839", "pred_raw": "32,50", "gt": "34,53", "pred": "32,50", "offline": true, "pool_level": 0, "iou": 0.762}
+{"id": "PI_64", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_2091", "pred_raw": "110,115", "gt": "108,115", "pred": "110,115", "offline": true, "pool_level": 0, "iou": 0.714}
+{"id": "FSA_1792", "pred_raw": "259,419", "gt": "227,288", "pred": "259,419", "offline": true, "pool_level": 0, "iou": 0.151}
+{"id": "FSA_1565", "pred_raw": "105,124", "gt": "105,125", "pred": "105,124", "offline": true, "pool_level": 0, "iou": 0.95}
+{"id": "FSA_1020", "pred_raw": "116,139", "gt": "116,135", "pred": "116,139", "offline": true, "pool_level": 0, "iou": 0.826}
+{"id": "CC_308", "pred_raw": "B", "gt": "A", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_953", "pred_raw": "496,518", "gt": "500,520", "pred": "496,518", "offline": true, "pool_level": 0, "iou": 0.75}
+{"id": "CC_210", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_459", "pred_raw": "C>41.4>", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1780", "pred_raw": "238,246", "gt": "236,255", "pred": "238,246", "offline": true, "pool_level": 0, "iou": 0.421}
+{"id": "NC_506", "pred_raw": "A, B", "gt": "A,B", "pred": "A,B", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_1019", "pred_raw": "49,89", "gt": "54,90", "pred": "49,89", "offline": true, "pool_level": 0, "iou": 0.854}
+{"id": "FSA_1457", "pred_raw": "100,117", "gt": "93,157", "pred": "100,117", "offline": true, "pool_level": 0, "iou": 0.266}
+{"id": "CC_656", "pred_raw": "C<42.4 seconds>", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_210", "pred_raw": "A", "gt": "B", "pred": "A", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_696", "pred_raw": "107,120", "gt": "95,110", "pred": "107,120", "offline": true, "pool_level": 0, "iou": 0.12}
+{"id": "CC_89", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "NC_45", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_424", "pred_raw": "A272.3 373.0", "gt": "B", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_416", "pred_raw": "C>44.0 seconds>44.0 seconds", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_487", "pred_raw": "249,267", "gt": "237,259", "pred": "249,267", "offline": true, "pool_level": 0, "iou": 0.333}
+{"id": "FSA_1263", "pred_raw": "113,135", "gt": "99,112", "pred": "113,135", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_359", "pred_raw": "41,59", "gt": "41,52", "pred": "41,59", "offline": true, "pool_level": 0, "iou": 0.611}
+{"id": "PEA_10", "pred_raw": "B", "gt": "A", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1929", "pred_raw": "172,180", "gt": "171,180", "pred": "172,180", "offline": true, "pool_level": 0, "iou": 0.889}
+{"id": "FSA_609", "pred_raw": "198,229", "gt": "125,135", "pred": "198,229", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_944", "pred_raw": "81,105", "gt": "82,96", "pred": "81,105", "offline": true, "pool_level": 0, "iou": 0.583}
+{"id": "NC_863", "pred_raw": "D", "gt": "A", "pred": "D", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_2221", "pred_raw": "56,72", "gt": "61,84", "pred": "56,72", "offline": true, "pool_level": 0, "iou": 0.393}
+{"id": "FSA_1106", "pred_raw": "127,132", "gt": "245,251", "pred": "127,132", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PSS_578", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "2->1->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_444", "pred_raw": "D>47.2 seconds>47.2 seconds>47.2 seconds>47.2 seconds>47.2 seconds>47.2 seconds>47.2 seconds>47.2 seconds>47.2 seconds>47.2 seconds>47.2 seconds>47.2 seconds>47.2 seconds>47.2 seconds>47.2 seconds>47.2", "gt": "B", "pred": "D", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_200", "pred_raw": "B", "gt": "D", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_423", "pred_raw": "C<271>223.22222222222222222222222222222222222222222222222222222222222222222222222222222222222222", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_49", "pred_raw": "A<28.2>29.29.29.29.29.29.29.29.29.29.29.29.29.29.29.29.29.29.29.29.29.29.29.29.29.29.29.29.29.29", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_454", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->3->2->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PI_7", "pred_raw": "B", "gt": "C", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_342", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_1183", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PI_210", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_38", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "3->2->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1436", "pred_raw": "91,122", "gt": "81,123", "pred": "91,122", "offline": true, "pool_level": 0, "iou": 0.738}
+{"id": "PEA_742", "pred_raw": "A<29.0>", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_1044", "pred_raw": "B>43.9 seconds>44.5 seconds>44.5 seconds>44.5 seconds>44.5 seconds>44.5 seconds>44.5 seconds>44.5 seconds>44.5 seconds>44.5 seconds>44.5 seconds>44.5 seconds>44.5 seconds>44.5 seconds>44.5 seconds>44.5", "gt": "A", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_606", "pred_raw": "A>27.2 seconds>28.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1090", "pred_raw": "122,137", "gt": "123,144", "pred": "122,137", "offline": true, "pool_level": 0, "iou": 0.636}
+{"id": "FSA_1401", "pred_raw": "100,125", "gt": "99,138", "pred": "100,125", "offline": true, "pool_level": 0, "iou": 0.641}
+{"id": "PEA_168", "pred_raw": "A", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_836", "pred_raw": "166,186", "gt": "165,169", "pred": "166,186", "offline": true, "pool_level": 0, "iou": 0.143}
+{"id": "PSS_263", "pred_raw": "44", "gt": "5->6->4->3->1->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1023", "pred_raw": "97,106", "gt": "100,103", "pred": "97,106", "offline": true, "pool_level": 0, "iou": 0.333}
+{"id": "PI_104", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_468", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "4->5->3->2->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1965", "pred_raw": "105,130", "gt": "103,133", "pred": "105,130", "offline": true, "pool_level": 0, "iou": 0.833}
+{"id": "FSA_735", "pred_raw": "66,70", "gt": "67,76", "pred": "66,70", "offline": true, "pool_level": 0, "iou": 0.3}
+{"id": "PEA_139", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_768", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_907", "pred_raw": "B<200.0> <200.0>", "gt": "B", "pred": "B", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_3", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_1702", "pred_raw": "171,199", "gt": "173,201", "pred": "171,199", "offline": true, "pool_level": 0, "iou": 0.867}
+{"id": "FSA_540", "pred_raw": "355,375", "gt": "356,360", "pred": "355,375", "offline": true, "pool_level": 0, "iou": 0.2}
+{"id": "PEA_883", "pred_raw": "B\n\nThe 40.3 seconds>", "gt": "A", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1876", "pred_raw": "102,114", "gt": "109,119", "pred": "102,114", "offline": true, "pool_level": 0, "iou": 0.294}
+{"id": "PSS_8", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "4->5->1->6->3->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_641", "pred_raw": "B", "gt": "B", "pred": "B", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_319", "pred_raw": "251,278", "gt": "285,297", "pred": "251,278", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_658", "pred_raw": "249,276", "gt": "190,192", "pred": "249,276", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "CC_787", "pred_raw": "B", "gt": "A", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_258", "pred_raw": "C<223.2 seconds>", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1755", "pred_raw": "199,216", "gt": "193,213", "pred": "199,216", "offline": true, "pool_level": 0, "iou": 0.609}
+{"id": "PEA_840", "pred_raw": "C>41.4 seconds>41.4 seconds>", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_510", "pred_raw": "80,106", "gt": "80,123", "pred": "80,106", "offline": true, "pool_level": 0, "iou": 0.605}
+{"id": "PI_137", "pred_raw": "D", "gt": "D", "pred": "D", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_559", "pred_raw": "329,370", "gt": "354,399", "pred": "329,370", "offline": true, "pool_level": 0, "iou": 0.229}
+{"id": "PEA_951", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1368", "pred_raw": "66,77", "gt": "63,77", "pred": "66,77", "offline": true, "pool_level": 0, "iou": 0.786}
+{"id": "PEA_878", "pred_raw": "B24.4 seconds>", "gt": "A", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_236", "pred_raw": "C<463.0>441.0>", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PI_36", "pred_raw": "A", "gt": "C", "pred": "A", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_70", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "4->3->1->5->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PI_169", "pred_raw": "B", "gt": "B", "pred": "B", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_821", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_747", "pred_raw": "116,179", "gt": "116,178", "pred": "116,179", "offline": true, "pool_level": 0, "iou": 0.984}
+{"id": "FSA_197", "pred_raw": "103,139", "gt": "105,108", "pred": "103,139", "offline": true, "pool_level": 0, "iou": 0.083}
+{"id": "PEA_32", "pred_raw": "B", "gt": "B", "pred": "B", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1624", "pred_raw": "10,69", "gt": "59,91", "pred": "10,69", "offline": true, "pool_level": 0, "iou": 0.123}
+{"id": "FSA_1473", "pred_raw": "86,97", "gt": "86,98", "pred": "86,97", "offline": true, "pool_level": 0, "iou": 0.917}
+{"id": "NC_13", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_786", "pred_raw": "323,378", "gt": "72,96", "pred": "323,378", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "NC_415", "pred_raw": "A", "gt": "A", "pred": "A", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PEA_504", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_773", "pred_raw": "C\n272.272.272.272.272.272.272.272.272.272.272.272.272.272.272.272.272.272.272.272.272.272.272.27", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1937", "pred_raw": "61,119", "gt": "61,83", "pred": "61,119", "offline": true, "pool_level": 0, "iou": 0.379}
+{"id": "FSA_369", "pred_raw": "155,177", "gt": "150,175", "pred": "155,177", "offline": true, "pool_level": 0, "iou": 0.741}
+{"id": "CC_163", "pred_raw": "C<3.8 seconds>", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1403", "pred_raw": "155,166", "gt": "156,187", "pred": "155,166", "offline": true, "pool_level": 0, "iou": 0.312}
+{"id": "FSA_2180", "pred_raw": "66,96", "gt": "65,78", "pred": "66,96", "offline": true, "pool_level": 0, "iou": 0.387}
+{"id": "FSA_788", "pred_raw": "115,124", "gt": "110,125", "pred": "115,124", "offline": true, "pool_level": 0, "iou": 0.6}
+{"id": "PSS_360", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "2->4->3->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_45", "pred_raw": "157,179", "gt": "310,346", "pred": "157,179", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_773", "pred_raw": "119,132", "gt": "118,135", "pred": "119,132", "offline": true, "pool_level": 0, "iou": 0.765}
+{"id": "FSA_2101", "pred_raw": "148,169", "gt": "151,170", "pred": "148,169", "offline": true, "pool_level": 0, "iou": 0.818}
+{"id": "CC_104", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "NC_317", "pred_raw": "C>23.2 seconds>23.2 seconds>23.2 seconds>23.2 seconds>23.2 seconds>23.2 seconds>23.2 seconds>23.2 seconds>23.2 seconds>212.2 seconds>213.2 seconds>214.2 seconds>215.2 seconds>216.2 seconds>217.2", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_592", "pred_raw": "B\nThis is Video 2: <28.8 seconds>29.0 seconds\n\nThe answer: wrong order", "gt": "B", "pred": "B", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1970", "pred_raw": "172,185", "gt": "160,185", "pred": "172,185", "offline": true, "pool_level": 0, "iou": 0.52}
+{"id": "CC_678", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PEA_557", "pred_raw": "B\nThe video shows a more complex action than the one in the video.\n\n<0.0>", "gt": "B", "pred": "A,B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_160", "pred_raw": "D", "gt": "D", "pred": "D", "offline": true, "pool_level": 0, "correct": true}
+{"id": "NC_226", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PI_177", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_615", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->4->2->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_488", "pred_raw": "253,265", "gt": "250,289", "pred": "253,265", "offline": true, "pool_level": 0, "iou": 0.308}
+{"id": "FSA_1387", "pred_raw": "127,138", "gt": "122,134", "pred": "127,138", "offline": true, "pool_level": 0, "iou": 0.438}
+{"id": "FSA_90", "pred_raw": "132,149", "gt": "133,155", "pred": "132,149", "offline": true, "pool_level": 0, "iou": 0.696}
+{"id": "PEA_704", "pred_raw": "B<30> The car is a new model, and it is being assembled by a team of workers.\n\nThe car is a new model, and it is being assembled by a team of workers.", "gt": "A", "pred": "A,B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_812", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_700", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PI_154", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_478", "pred_raw": "25,30", "gt": "82,94", "pred": "25,30", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PEA_0", "pred_raw": "A\n\n27. 27. 27. 27. 27. 27. 27. 21. 21. 27. 27. 28. 28. 27. 27. 28. 28. 27. 27. 28. 28. 27. 27. 28", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_193", "pred_raw": "B>23.2 seconds>24.2 seconds>25.2 seconds>26.2 seconds>27.2 seconds>28.2 seconds>29.2 seconds>30.2 seconds>31.2 seconds>32.2 seconds>33.2 seconds>34.2 seconds>35.2 seconds>36.2 seconds>37.2 seconds>38.2", "gt": "B", "pred": "B", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_244", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_282", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_918", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_78", "pred_raw": "103,126", "gt": "104,126", "pred": "103,126", "offline": true, "pool_level": 0, "iou": 0.957}
+{"id": "FSA_984", "pred_raw": "283,295", "gt": "284,294", "pred": "283,295", "offline": true, "pool_level": 0, "iou": 0.833}
+{"id": "PEA_52", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_240", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1069", "pred_raw": "90,110", "gt": "87,108", "pred": "90,110", "offline": true, "pool_level": 0, "iou": 0.783}
+{"id": "NC_325", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_347", "pred_raw": "48,70", "gt": "50,71", "pred": "48,70", "offline": true, "pool_level": 0, "iou": 0.87}
+{"id": "CC_101", "pred_raw": "B", "gt": "D", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_520", "pred_raw": "C<123.1 seconds>", "gt": "D", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_518", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "3->2->1->5->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_450", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_586", "pred_raw": "176,185", "gt": "87,103", "pred": "176,185", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PI_186", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "CC_685", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "NC_203", "pred_raw": "D", "gt": "A", "pred": "D", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_591", "pred_raw": "180,206", "gt": "180,220", "pred": "180,206", "offline": true, "pool_level": 0, "iou": 0.65}
+{"id": "CC_666", "pred_raw": "B", "gt": "A", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_547", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PEA_357", "pred_raw": "C<106.0>107.0<106.0>", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_482", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PSS_50", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "4->5->2->3->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_384", "pred_raw": "333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333", "gt": "5->4->6->2->3->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1800", "pred_raw": "44,63", "gt": "82,100", "pred": "44,63", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_111", "pred_raw": "270,285", "gt": "289,314", "pred": "270,285", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "CC_58", "pred_raw": "C<112.3>", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_462", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_138", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_145", "pred_raw": "100,106", "gt": "93,109", "pred": "100,106", "offline": true, "pool_level": 0, "iou": 0.375}
+{"id": "NC_343", "pred_raw": "B", "gt": "B", "pred": "B", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_201", "pred_raw": "169,187", "gt": "158,167", "pred": "169,187", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PEA_943", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_375", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_260", "pred_raw": "B", "gt": "D", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_734", "pred_raw": "124,137", "gt": "28,34", "pred": "124,137", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "CC_429", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_1740", "pred_raw": "76,89", "gt": "70,90", "pred": "76,89", "offline": true, "pool_level": 0, "iou": 0.65}
+{"id": "FSA_1985", "pred_raw": "157,166", "gt": "155,165", "pred": "157,166", "offline": true, "pool_level": 0, "iou": 0.727}
+{"id": "FSA_238", "pred_raw": "117,132", "gt": "94,134", "pred": "117,132", "offline": true, "pool_level": 0, "iou": 0.375}
+{"id": "NC_295", "pred_raw": "B", "gt": "C", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_1683", "pred_raw": "180,187", "gt": "150,165", "pred": "180,187", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "CC_437", "pred_raw": "B", "gt": "D", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "NC_896", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PSS_488", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "2->1->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_79", "pred_raw": "D<36.3 seconds>", "gt": "C", "pred": "D", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1808", "pred_raw": "433,455", "gt": "342,405", "pred": "433,455", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_717", "pred_raw": "90,109", "gt": "85,103", "pred": "90,109", "offline": true, "pool_level": 0, "iou": 0.542}
+{"id": "FSA_1733", "pred_raw": "47,53", "gt": "47,56", "pred": "47,53", "offline": true, "pool_level": 0, "iou": 0.667}
+{"id": "FSA_833", "pred_raw": "190,205", "gt": "197,250", "pred": "190,205", "offline": true, "pool_level": 0, "iou": 0.133}
+{"id": "PSS_496", "pred_raw": "333", "gt": "1->4->6->2->3->5", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_563", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_185", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "3->2->4->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_287", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PI_197", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_29", "pred_raw": "B", "gt": "B", "pred": "B", "offline": true, "pool_level": 0, "correct": true}
+{"id": "NC_411", "pred_raw": "B 43.4 seconds>43.4 seconds>43.4 seconds>43.4 seconds>43.4 seconds>43.6 seconds>43.6 seconds>43.6 seconds>43.6 seconds>43.6 seconds>43.6 seconds>43.6 seconds>43.6 seconds>43.6 seconds>43.6 seconds>43.6", "gt": "B", "pred": "B", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_684", "pred_raw": "B60.8 seconds>", "gt": "A", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_417", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->2->3->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_162", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->4->3->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_1166", "pred_raw": "B", "gt": "A", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "NC_516", "pred_raw": "A>276.22 276.22 276.22 276.22 276.22 235.2 212.2 203.2 213.2 214.2 215.2 216.2 217.2 218.2 219.2", "gt": "C", "pred": "A", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_475", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_490", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "2->3->1->5->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1354", "pred_raw": "296,325", "gt": "293,333", "pred": "296,325", "offline": true, "pool_level": 0, "iou": 0.725}
+{"id": "PEA_580", "pred_raw": "C>24.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_161", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->3->4->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_85", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_22", "pred_raw": "115,120", "gt": "160,166", "pred": "115,120", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PEA_143", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_2168", "pred_raw": "132,146", "gt": "132,155", "pred": "132,146", "offline": true, "pool_level": 0, "iou": 0.609}
+{"id": "PEA_726", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_649", "pred_raw": "C>41.8 seconds>41.8 seconds>", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_628", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "3->2->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_522", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->3->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_92", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_161", "pred_raw": "B<24.2 seconds>", "gt": "C", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_618", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "5->1->3->4->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_316", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_64", "pred_raw": "C<44.3 seconds>", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_870", "pred_raw": "B<202.8>", "gt": "B", "pred": "B", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1757", "pred_raw": "137,163", "gt": "144,164", "pred": "137,163", "offline": true, "pool_level": 0, "iou": 0.704}
+{"id": "NC_64", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_1547", "pred_raw": "81,87", "gt": "82,86", "pred": "81,87", "offline": true, "pool_level": 0, "iou": 0.667}
+{"id": "FSA_2224", "pred_raw": "64,72", "gt": "61,84", "pred": "64,72", "offline": true, "pool_level": 0, "iou": 0.348}
+{"id": "PEA_896", "pred_raw": "A\n\n", "gt": "B", "pred": "A", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1664", "pred_raw": "65,71", "gt": "66,72", "pred": "65,71", "offline": true, "pool_level": 0, "iou": 0.714}
+{"id": "FSA_803", "pred_raw": "135,144", "gt": "118,133", "pred": "135,144", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "CC_508", "pred_raw": "B", "gt": "B", "pred": "B", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PEA_752", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_241", "pred_raw": "220,245", "gt": "118,132", "pred": "220,245", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PEA_419", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_802", "pred_raw": "B", "gt": "A", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_73", "pred_raw": "393,404", "gt": "230,244", "pred": "393,404", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "CC_301", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PSS_374", "pred_raw": "44", "gt": "4->2->1->6->3->5", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1358", "pred_raw": "256,278", "gt": "252,274", "pred": "256,278", "offline": true, "pool_level": 0, "iou": 0.692}
+{"id": "PEA_164", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1618", "pred_raw": "180,229", "gt": "183,203", "pred": "180,229", "offline": true, "pool_level": 0, "iou": 0.408}
+{"id": "NC_867", "pred_raw": "B", "gt": "A", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_35", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_1826", "pred_raw": "179,181", "gt": "181,189", "pred": "179,181", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PSS_54", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->4->2->3->5", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_968", "pred_raw": "88,117", "gt": "79,113", "pred": "88,117", "offline": true, "pool_level": 0, "iou": 0.658}
+{"id": "NC_76", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "NC_860", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PI_55", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_959", "pred_raw": "174,186", "gt": "175,216", "pred": "174,186", "offline": true, "pool_level": 0, "iou": 0.262}
+{"id": "PEA_875", "pred_raw": "B\nThe video 2: The 2022 video is the same as the video 1.\n\nThe video 1:", "gt": "B", "pred": "B", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PSS_253", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "6->1->4->3->2->5", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_288", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_456", "pred_raw": "41,50", "gt": "41,82", "pred": "41,50", "offline": true, "pool_level": 0, "iou": 0.22}
+{"id": "PEA_593", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_373", "pred_raw": "B24.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.", "gt": "A", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PI_38", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_91", "pred_raw": "B<202.4>410.0>", "gt": "A", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_554", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PI_56", "pred_raw": "D", "gt": "C", "pred": "D", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1496", "pred_raw": "156,166", "gt": "151,187", "pred": "156,166", "offline": true, "pool_level": 0, "iou": 0.278}
+{"id": "FSA_1844", "pred_raw": "405,420", "gt": "220,304", "pred": "405,420", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_1995", "pred_raw": "199,201", "gt": "202,238", "pred": "199,201", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_648", "pred_raw": "259,296", "gt": "275,305", "pred": "259,296", "offline": true, "pool_level": 0, "iou": 0.457}
+{"id": "NC_999", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PSS_39", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->2->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_341", "pred_raw": "B>239.2 seconds>243.1 seconds>243.1 seconds>245.1 seconds>246.1 seconds>246.2 seconds>243.5 seconds>243.5 seconds>242.5 seconds>242.5 seconds>241.5 seconds>241.5 seconds>240.5 seconds>240", "gt": "A", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_2084", "pred_raw": "137,150", "gt": "212,219", "pred": "137,150", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_1956", "pred_raw": "162,182", "gt": "161,185", "pred": "162,182", "offline": true, "pool_level": 0, "iou": 0.833}
+{"id": "PEA_434", "pred_raw": "A\n\n", "gt": "C", "pred": "A", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1880", "pred_raw": "117,139", "gt": "118,141", "pred": "117,139", "offline": true, "pool_level": 0, "iou": 0.875}
+{"id": "CC_198", "pred_raw": "A>12.2>12.2>12.2>12.2>12.2>12.2>12.2>12.2>12.2>12.2>12.2>12.2>12.2>12.2>12.2>12.2>12.2>12.2>12.2", "gt": "B", "pred": "A", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_521", "pred_raw": "153,160", "gt": "114,133", "pred": "153,160", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PEA_344", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_788", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_2088", "pred_raw": "42,66", "gt": "36,66", "pred": "42,66", "offline": true, "pool_level": 0, "iou": 0.8}
+{"id": "NC_798", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "CC_738", "pred_raw": "B", "gt": "A", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "NC_970", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_1374", "pred_raw": "129,148", "gt": "122,136", "pred": "129,148", "offline": true, "pool_level": 0, "iou": 0.269}
+{"id": "NC_613", "pred_raw": "A>", "gt": "D", "pred": "A", "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_505", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_1564", "pred_raw": "83,89", "gt": "84,91", "pred": "83,89", "offline": true, "pool_level": 0, "iou": 0.625}
+{"id": "FSA_1333", "pred_raw": "123,145", "gt": "123,146", "pred": "123,145", "offline": true, "pool_level": 0, "iou": 0.957}
+{"id": "FSA_1119", "pred_raw": "230,256", "gt": "226,245", "pred": "230,256", "offline": true, "pool_level": 0, "iou": 0.5}
+{"id": "FSA_1999", "pred_raw": "289,300", "gt": "290,300", "pred": "289,300", "offline": true, "pool_level": 0, "iou": 0.909}
+{"id": "NC_504", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "NC_619", "pred_raw": "D_29.2 seconds>276.2 seconds>283.2 seconds>283.2 seconds>283.2 seconds>283.2 seconds>283.2 seconds>283.2 seconds>283.2 seconds>283.2 seconds>283.2 seconds>283.2 seconds>232.2 seconds>236.", "gt": "B", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PI_34", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_677", "pred_raw": "B>27.0 seconds>28.0 seconds>29.1 seconds>30.0 seconds>31.0 seconds>32.0 seconds>33.0 seconds>34.0 seconds>35.0 seconds>36.0 seconds>37.0 seconds>38.0 seconds>39.1 seconds>40.0 seconds>41.0 seconds>42.0", "gt": "D", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1655", "pred_raw": "125,147", "gt": "126,146", "pred": "125,147", "offline": true, "pool_level": 0, "iou": 0.909}
+{"id": "FSA_1958", "pred_raw": "162,177", "gt": "160,177", "pred": "162,177", "offline": true, "pool_level": 0, "iou": 0.882}
+{"id": "NC_638", "pred_raw": "A", "gt": "A", "pred": "A", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PEA_201", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_848", "pred_raw": "B\nThe video is about a 2022 video.", "gt": "A", "pred": "A,B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_771", "pred_raw": "A", "gt": "C", "pred": "A", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_484", "pred_raw": "B", "gt": "C", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_1200", "pred_raw": "393,438", "gt": "391,437", "pred": "393,438", "offline": true, "pool_level": 0, "iou": 0.936}
+{"id": "FSA_1766", "pred_raw": "143,164", "gt": "144,164", "pred": "143,164", "offline": true, "pool_level": 0, "iou": 0.952}
+{"id": "FSA_679", "pred_raw": "330,340", "gt": "298,303", "pred": "330,340", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PEA_754", "pred_raw": "A<20.6>", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_941", "pred_raw": "150,166", "gt": "176,186", "pred": "150,166", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PEA_590", "pred_raw": "B\n\nThe video shows 30 seconds.\n\nThe video shows 30 seconds.\n\nThe video shows 30 seconds.\n\n<30> 30 seconds.\n\nThe video shows 30 seconds.\n\n<30> 30 seconds.\n\n<30> 30 seconds.\n\n<30> 30 seconds.\n\n<30> 30 seconds.\n\n<30> 30 seconds.\n\n<30> 30 seconds", "gt": "A", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_412", "pred_raw": "27,36", "gt": "18,37", "pred": "27,36", "offline": true, "pool_level": 0, "iou": 0.474}
+{"id": "NC_17", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_318", "pred_raw": "220,226", "gt": "217,223", "pred": "220,226", "offline": true, "pool_level": 0, "iou": 0.333}
+{"id": "CC_564", "pred_raw": "A", "gt": "D", "pred": "A", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_640", "pred_raw": "A", "gt": "A", "pred": "A", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_499", "pred_raw": "117,139", "gt": "110,137", "pred": "117,139", "offline": true, "pool_level": 0, "iou": 0.69}
+{"id": "PEA_169", "pred_raw": "B", "gt": "A", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1157", "pred_raw": "58,75", "gt": "120,185", "pred": "58,75", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_1192", "pred_raw": "236,244", "gt": "38,47", "pred": "236,244", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_543", "pred_raw": "390,418", "gt": "402,420", "pred": "390,418", "offline": true, "pool_level": 0, "iou": 0.533}
+{"id": "CC_578", "pred_raw": "B", "gt": "C", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PEA_354", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_1181", "pred_raw": "D", "gt": "A", "pred": "D", "offline": true, "pool_level": 0, "correct": false}
+{"id": "NC_120", "pred_raw": "A>27.2 seconds>27.2 seconds>27.2 seconds>27.2 seconds>27.2 seconds>27.2 seconds>27.2 seconds>27.2 seconds>27.2 seconds>27.2 seconds>27.2 seconds>27.2 seconds>27.2 seconds>27.2 seconds>27.2 seconds>27.2", "gt": "D", "pred": "A", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1642", "pred_raw": "183,206", "gt": "172,213", "pred": "183,206", "offline": true, "pool_level": 0, "iou": 0.561}
+{"id": "PSS_308", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->4->3->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_512", "pred_raw": "D", "gt": "A", "pred": "D", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_18", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_1722", "pred_raw": "244,280", "gt": "243,275", "pred": "244,280", "offline": true, "pool_level": 0, "iou": 0.838}
+{"id": "FSA_844", "pred_raw": "55,60", "gt": "51,77", "pred": "55,60", "offline": true, "pool_level": 0, "iou": 0.192}
+{"id": "NC_898", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PEA_464", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1003", "pred_raw": "197,206", "gt": "159,164", "pred": "197,206", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PSS_434", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->3->2->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_719", "pred_raw": "D", "gt": "C", "pred": "D", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PSS_651", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->5->4->3->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_364", "pred_raw": "C>27.2>27.2>27.2>27.2>27.2>27.2>27.2>27.3>27.3>27.3>27.3>27.3>27.3>27.3>27.3>27.3>27.3>27.3>27.3", "gt": "D", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_889", "pred_raw": "209,237", "gt": "212,241", "pred": "209,237", "offline": true, "pool_level": 0, "iou": 0.781}
+{"id": "FSA_1607", "pred_raw": "18,71", "gt": "17,49", "pred": "18,71", "offline": true, "pool_level": 0, "iou": 0.574}
+{"id": "CC_774", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "CC_785", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PEA_454", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_111", "pred_raw": "A>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0 seconds>29.0", "gt": "C", "pred": "A", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PI_244", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_512", "pred_raw": "180,200", "gt": "192,226", "pred": "180,200", "offline": true, "pool_level": 0, "iou": 0.174}
+{"id": "NC_671", "pred_raw": "A\n\nThe video is about a 470.2 seconds>", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "CC_22", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PSS_259", "pred_raw": "444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444", "gt": "6->4->2->1->5->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_319", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "4->2->1->5->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_570", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_1039", "pred_raw": "96,106", "gt": "83,98", "pred": "96,106", "offline": true, "pool_level": 0, "iou": 0.087}
+{"id": "FSA_581", "pred_raw": "345,356", "gt": "335,364", "pred": "345,356", "offline": true, "pool_level": 0, "iou": 0.379}
+{"id": "FSA_683", "pred_raw": "188,210", "gt": "177,210", "pred": "188,210", "offline": true, "pool_level": 0, "iou": 0.667}
+{"id": "FSA_116", "pred_raw": "199,204", "gt": "200,205", "pred": "199,204", "offline": true, "pool_level": 0, "iou": 0.667}
+{"id": "FSA_745", "pred_raw": "30,44", "gt": "30,43", "pred": "30,44", "offline": true, "pool_level": 0, "iou": 0.929}
+{"id": "PSS_364", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->4->3->5->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_10", "pred_raw": "A", "gt": "A", "pred": "A", "offline": true, "pool_level": 0, "correct": true}
+{"id": "NC_1197", "pred_raw": "D", "gt": "C", "pred": "D", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_775", "pred_raw": "B", "gt": "B", "pred": "B", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_548", "pred_raw": "106,117", "gt": "107,116", "pred": "106,117", "offline": true, "pool_level": 0, "iou": 0.818}
+{"id": "FSA_1088", "pred_raw": "37,62", "gt": "36,62", "pred": "37,62", "offline": true, "pool_level": 0, "iou": 0.962}
+{"id": "PEA_408", "pred_raw": "C>26.2>", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1086", "pred_raw": "259,270", "gt": "310,370", "pred": "259,270", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_1934", "pred_raw": "313,320", "gt": "281,309", "pred": "313,320", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_1891", "pred_raw": "251,278", "gt": "254,297", "pred": "251,278", "offline": true, "pool_level": 0, "iou": 0.522}
+{"id": "CC_299", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PSS_465", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->2->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_173", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1190", "pred_raw": "91,103", "gt": "80,95", "pred": "91,103", "offline": true, "pool_level": 0, "iou": 0.174}
+{"id": "PEA_699", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_367", "pred_raw": "B\nThis is Video 2: <24.8 seconds>", "gt": "A", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1425", "pred_raw": "154,196", "gt": "156,195", "pred": "154,196", "offline": true, "pool_level": 0, "iou": 0.929}
+{"id": "NC_834", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PI_171", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_257", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "NC_780", "pred_raw": "B", "gt": "D", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PEA_293", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_644", "pred_raw": "C>34.0 seconds>34.0 seconds>34.0 seconds>34.0 seconds>34.0 seconds>34.0 seconds>34.0 seconds>34.0 seconds>34.0 seconds>34.0 seconds>34.0 seconds>34.0 seconds>34.0 seconds>34.0 seconds>34.0 seconds>34.0", "gt": "D", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_135", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->4->2->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_836", "pred_raw": "A", "gt": "B", "pred": "A", "offline": true, "pool_level": 0, "correct": false}
+{"id": "NC_58", "pred_raw": "B 41.5", "gt": "A", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_222", "pred_raw": "B\nThis is Video 2:", "gt": "C", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_2034", "pred_raw": "262,280", "gt": "262,278", "pred": "262,280", "offline": true, "pool_level": 0, "iou": 0.889}
+{"id": "PEA_303", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1751", "pred_raw": "72,84", "gt": "72,84", "pred": "72,84", "offline": true, "pool_level": 0, "iou": 1.0}
+{"id": "FSA_2033", "pred_raw": "93,117", "gt": "74,134", "pred": "93,117", "offline": true, "pool_level": 0, "iou": 0.4}
+{"id": "NC_172", "pred_raw": "B", "gt": "B", "pred": "B", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PI_234", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_725", "pred_raw": "B>272.2 seconds>373.2 seconds>374.2 seconds>375.2 seconds>376.2 seconds>377.2 seconds>378.2 seconds>379.2 seconds>380.2 seconds>381.2 seconds>382.2 seconds>383.2 seconds>384.2 seconds>385", "gt": "A", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_258", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_448", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "CC_207", "pred_raw": "B<276.4>272.4>273.4>274.4>275.4>276.4>277.4>278.4>279.4>280.4>281.4>282.4>283.4>284.4>285.4>286.", "gt": "C", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_912", "pred_raw": "249,253", "gt": "242,246", "pred": "249,253", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_1453", "pred_raw": "163,174", "gt": "164,190", "pred": "163,174", "offline": true, "pool_level": 0, "iou": 0.37}
+{"id": "FSA_802", "pred_raw": "305,315", "gt": "307,330", "pred": "305,315", "offline": true, "pool_level": 0, "iou": 0.32}
+{"id": "FSA_273", "pred_raw": "41,50", "gt": "40,53", "pred": "41,50", "offline": true, "pool_level": 0, "iou": 0.692}
+{"id": "PSS_640", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->5->4->3->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_482", "pred_raw": "52,77", "gt": "53,71", "pred": "52,77", "offline": true, "pool_level": 0, "iou": 0.72}
+{"id": "PI_18", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_65", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1631", "pred_raw": "109,136", "gt": "112,135", "pred": "109,136", "offline": true, "pool_level": 0, "iou": 0.852}
+{"id": "PEA_153", "pred_raw": "B20.20.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2", "gt": "B", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_680", "pred_raw": "160,175", "gt": "164,169", "pred": "160,175", "offline": true, "pool_level": 0, "iou": 0.333}
+{"id": "FSA_2183", "pred_raw": "366,378", "gt": "367,378", "pred": "366,378", "offline": true, "pool_level": 0, "iou": 0.917}
+{"id": "FSA_1536", "pred_raw": "117,122", "gt": "118,139", "pred": "117,122", "offline": true, "pool_level": 0, "iou": 0.182}
+{"id": "PEA_589", "pred_raw": "A\n\n", "gt": "B", "pred": "A", "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_568", "pred_raw": "C>228.4>228.4>228.4>228.4>228.4>228.4>229.4>229.4>229.4>229.4>222.4>222.4>222.4>222.4>221.4>221.", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1717", "pred_raw": "137,149", "gt": "140,150", "pred": "137,149", "offline": true, "pool_level": 0, "iou": 0.692}
+{"id": "FSA_1107", "pred_raw": "98,117", "gt": "99,110", "pred": "98,117", "offline": true, "pool_level": 0, "iou": 0.579}
+{"id": "PSS_370", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "5->3->1->4->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_267", "pred_raw": "D<26>2727272727272727272727272727272727272727272727272727272727272727272727272727272727272727272", "gt": "D", "pred": "D", "offline": true, "pool_level": 2, "correct": true}
+{"id": "CC_246", "pred_raw": "B<242.4>", "gt": "D", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1577", "pred_raw": "257,270", "gt": "110,134", "pred": "257,270", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "NC_808", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_1195", "pred_raw": "224,230", "gt": "221,235", "pred": "224,230", "offline": true, "pool_level": 0, "iou": 0.429}
+{"id": "NC_1057", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PSS_612", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "2->1->5->4->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1861", "pred_raw": "103,196", "gt": "179,195", "pred": "103,196", "offline": true, "pool_level": 0, "iou": 0.172}
+{"id": "PEA_391", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_629", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PEA_379", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_937", "pred_raw": "C>26.2 seconds>27.0 seconds>28.0 seconds>29.0 seconds>30.0 seconds>31.0 seconds>32.0 seconds>33.0 seconds>34.0 seconds>35.0 seconds>36.0 seconds>37.0 seconds>38.0 seconds>39.0 seconds>40.0 seconds>41.0", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_187", "pred_raw": "69,75", "gt": "23,43", "pred": "69,75", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "CC_132", "pred_raw": "C>73.1 seconds>73.1 seconds>73.1 seconds>73.1 seconds>74.1 seconds>74.1 seconds>75.1 seconds>75.1 seconds>76.1 seconds>76.1 seconds>77.1 seconds>78.1 seconds>79.1 seconds>79.1 seconds>80.1 seconds>80.1", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_159", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_1216", "pred_raw": "83,93", "gt": "86,93", "pred": "83,93", "offline": true, "pool_level": 0, "iou": 0.7}
+{"id": "PI_120", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_2120", "pred_raw": "46,70", "gt": "45,72", "pred": "46,70", "offline": true, "pool_level": 0, "iou": 0.889}
+{"id": "NC_4", "pred_raw": "C>371.1 seconds>371.1 seconds>371.1 seconds>371.1 seconds>371.1 seconds>371.1 seconds>371.1 seconds>371.1 seconds>371.1 seconds>371.1 seconds>371.1 seconds>371.1 seconds>371.1 seconds>324", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1558", "pred_raw": "83,88", "gt": "84,91", "pred": "83,88", "offline": true, "pool_level": 0, "iou": 0.5}
+{"id": "FSA_1632", "pred_raw": "165,178", "gt": "168,181", "pred": "165,178", "offline": true, "pool_level": 0, "iou": 0.625}
+{"id": "CC_539", "pred_raw": "B", "gt": "A", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_277", "pred_raw": "125,167", "gt": "139,148", "pred": "125,167", "offline": true, "pool_level": 0, "iou": 0.214}
+{"id": "PSS_534", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->2->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_47", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_2202", "pred_raw": "255,266", "gt": "256,267", "pred": "255,266", "offline": true, "pool_level": 0, "iou": 0.833}
+{"id": "PSS_506", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->5->4->3->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_200", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->3->2->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_862", "pred_raw": "C\n6.8.2.4.6.8", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_88", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "2->1->5->4->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_87", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_1372", "pred_raw": "289,336", "gt": "288,338", "pred": "289,336", "offline": true, "pool_level": 0, "iou": 0.94}
+{"id": "CC_679", "pred_raw": "A", "gt": "A", "pred": "A", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_1314", "pred_raw": "86,93", "gt": "87,95", "pred": "86,93", "offline": true, "pool_level": 0, "iou": 0.667}
+{"id": "PEA_575", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_26", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_930", "pred_raw": "217,228", "gt": "219,234", "pred": "217,228", "offline": true, "pool_level": 0, "iou": 0.529}
+{"id": "CC_511", "pred_raw": "B", "gt": "B", "pred": "B", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_775", "pred_raw": "139,165", "gt": "135,174", "pred": "139,165", "offline": true, "pool_level": 0, "iou": 0.667}
+{"id": "PEA_822", "pred_raw": "C<2.0 seconds>27.5 seconds\n\nThis is a question about the assembly of a toy car.\n\nThis is Video 1.", "gt": "A", "pred": "A,C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_129", "pred_raw": "C>162.2 27.2 27.2 27.2 27.2 27.2 27.2 27.2 27.2 27.2 27.2 27.2 27.2 27.2 27.2 27.2 27.2 27.2 27.", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_0", "pred_raw": "85,90", "gt": "82,95", "pred": "85,90", "offline": true, "pool_level": 0, "iou": 0.385}
+{"id": "PSS_216", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "3->2->5->1->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_603", "pred_raw": "B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B", "gt": "A", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1612", "pred_raw": "18,71", "gt": "17,49", "pred": "18,71", "offline": true, "pool_level": 0, "iou": 0.574}
+{"id": "CC_154", "pred_raw": "C<423.0 seconds>", "gt": "D", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_94", "pred_raw": "B 27.0 seconds>27.0 seconds>28.0 seconds>29.0 seconds>29.6 seconds>30.0 seconds>31.0 seconds>32.0 seconds>33.0 seconds>34.0 seconds>35.0 seconds>36.0 seconds>37.0 seconds>38.0 seconds>39.0 seconds>40.0", "gt": "A", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1746", "pred_raw": "70,77", "gt": "72,84", "pred": "70,77", "offline": true, "pool_level": 0, "iou": 0.357}
+{"id": "PEA_477", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1548", "pred_raw": "175,181", "gt": "193,223", "pred": "175,181", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_1048", "pred_raw": "153,169", "gt": "153,169", "pred": "153,169", "offline": true, "pool_level": 0, "iou": 1.0}
+{"id": "FSA_2095", "pred_raw": "184,207", "gt": "184,216", "pred": "184,207", "offline": true, "pool_level": 0, "iou": 0.719}
+{"id": "FSA_340", "pred_raw": "110,112", "gt": "186,217", "pred": "110,112", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_366", "pred_raw": "173,189", "gt": "173,195", "pred": "173,189", "offline": true, "pool_level": 0, "iou": 0.727}
+{"id": "NC_717", "pred_raw": "C>27>", "gt": "D", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_2099", "pred_raw": "155,166", "gt": "138,155", "pred": "155,166", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_672", "pred_raw": "294,312", "gt": "96,116", "pred": "294,312", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "CC_526", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PSS_106", "pred_raw": "444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444", "gt": "3->5->1->6->2->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_468", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_114", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "NC_458", "pred_raw": "D<43.4 seconds>", "gt": "B", "pred": "D", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_1142", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_1256", "pred_raw": "185,210", "gt": "162,210", "pred": "185,210", "offline": true, "pool_level": 0, "iou": 0.521}
+{"id": "FSA_1388", "pred_raw": "155,185", "gt": "156,187", "pred": "155,185", "offline": true, "pool_level": 0, "iou": 0.906}
+{"id": "CC_349", "pred_raw": "A", "gt": "C", "pred": "A", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PEA_214", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_179", "pred_raw": "119,149", "gt": "128,151", "pred": "119,149", "offline": true, "pool_level": 0, "iou": 0.656}
+{"id": "FSA_485", "pred_raw": "25,50", "gt": "24,50", "pred": "25,50", "offline": true, "pool_level": 0, "iou": 0.962}
+{"id": "FSA_1994", "pred_raw": "169,188", "gt": "169,171", "pred": "169,188", "offline": true, "pool_level": 0, "iou": 0.105}
+{"id": "FSA_723", "pred_raw": "138,143", "gt": "155,165", "pred": "138,143", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_2002", "pred_raw": "255,260", "gt": "258,264", "pred": "255,260", "offline": true, "pool_level": 0, "iou": 0.222}
+{"id": "PEA_570", "pred_raw": "B4.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0", "gt": "B", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1629", "pred_raw": "109,115", "gt": "32,82", "pred": "109,115", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_1812", "pred_raw": "144,150", "gt": "142,163", "pred": "144,150", "offline": true, "pool_level": 0, "iou": 0.286}
+{"id": "PEA_438", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_657", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->2->5->3->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_587", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_386", "pred_raw": "A", "gt": "C", "pred": "A", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_972", "pred_raw": "115,132", "gt": "118,145", "pred": "115,132", "offline": true, "pool_level": 0, "iou": 0.467}
+{"id": "PSS_232", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->3->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_455", "pred_raw": "185,206", "gt": "186,197", "pred": "185,206", "offline": true, "pool_level": 0, "iou": 0.524}
+{"id": "FSA_1303", "pred_raw": "54,99", "gt": "119,136", "pred": "54,99", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PSS_335", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->3->2->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_159", "pred_raw": "A", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PI_42", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1860", "pred_raw": "156,160", "gt": "154,160", "pred": "156,160", "offline": true, "pool_level": 0, "iou": 0.667}
+{"id": "PEA_146", "pred_raw": "A\n\n", "gt": "B", "pred": "A", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_760", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PEA_611", "pred_raw": "C<30>", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_500", "pred_raw": "38,45", "gt": "35,46", "pred": "38,45", "offline": true, "pool_level": 0, "iou": 0.636}
+{"id": "PI_49", "pred_raw": "B", "gt": "C", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_262", "pred_raw": "B>234.5 seconds>270.8 seconds>275.8 seconds>276.8 seconds>277.8 seconds>278.8 seconds>280.7 seconds>281.7 seconds>282.7 seconds>283.7 seconds>284.7 seconds>285.7 seconds>286.7 seconds>287", "gt": "B", "pred": "B", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_294", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_599", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PI_121", "pred_raw": "D", "gt": "D", "pred": "D", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_217", "pred_raw": "B\nThis is Video 2: <28.8>", "gt": "B", "pred": "B", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1776", "pred_raw": "199,216", "gt": "218,239", "pred": "199,216", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PSS_208", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->4->2->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_629", "pred_raw": "B<24.8 seconds>", "gt": "B", "pred": "B", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_322", "pred_raw": "39,69", "gt": "40,92", "pred": "39,69", "offline": true, "pool_level": 0, "iou": 0.547}
+{"id": "FSA_1000", "pred_raw": "239,248", "gt": "220,257", "pred": "239,248", "offline": true, "pool_level": 0, "iou": 0.243}
+{"id": "CC_554", "pred_raw": "B<276.6 seconds>217.2 21.2 seconds>21.2 seconds>21.2 seconds>21.2 seconds>21.2 seconds>21.2 seconds>21.2 seconds>21.2 seconds>21.2 seconds>21.2 seconds>21.2 seconds>21.2 seconds>21.2 seconds>21.", "gt": "C", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_423", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1589", "pred_raw": "100,110", "gt": "259,280", "pred": "100,110", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "CC_617", "pred_raw": "B", "gt": "A", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PSS_167", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->4->3->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_2204", "pred_raw": "133,155", "gt": "134,145", "pred": "133,155", "offline": true, "pool_level": 0, "iou": 0.5}
+{"id": "NC_842", "pred_raw": "D", "gt": "C", "pred": "D", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PSS_274", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "1->5->4->2->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_565", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "2->4->1->5->3", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_605", "pred_raw": "B2 202.5.202.5.202.5", "gt": "A", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_456", "pred_raw": "444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444", "gt": "5->3->1->6->4->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_134", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_124", "pred_raw": "130,159", "gt": "125,169", "pred": "130,159", "offline": true, "pool_level": 0, "iou": 0.659}
+{"id": "FSA_246", "pred_raw": "60,66", "gt": "59,64", "pred": "60,66", "offline": true, "pool_level": 0, "iou": 0.571}
+{"id": "CC_548", "pred_raw": "A<27.8 seconds>", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_202", "pred_raw": "160,167", "gt": "158,167", "pred": "160,167", "offline": true, "pool_level": 0, "iou": 0.778}
+{"id": "PSS_173", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "3->5->4->6->2->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_928", "pred_raw": "117,122", "gt": "119,180", "pred": "117,122", "offline": true, "pool_level": 0, "iou": 0.048}
+{"id": "PEA_695", "pred_raw": "C>", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_327", "pred_raw": "104,120", "gt": "103,107", "pred": "104,120", "offline": true, "pool_level": 0, "iou": 0.176}
+{"id": "CC_43", "pred_raw": "C", "gt": "D", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "PEA_325", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_964", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PEA_788", "pred_raw": "C>24.2 seconds>24.2 seconds>24.2 seconds>24.2 seconds>24.2 seconds>24.2 seconds>24.2 seconds>24.2 seconds>24.2 seconds>24.2 seconds>24.2 seconds>24.2 seconds>24.2 seconds>24.2 seconds>24.2 seconds>24.2", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_284", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_383", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "4->2->3->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_438", "pred_raw": "A>236.8 seconds>377.0 seconds>385.0 seconds>389.0 seconds>392.0 seconds>393.0 seconds>394.0 seconds>395.0 seconds>396.0 seconds>397.0 seconds>398.0 seconds>399.0 seconds>400.0 seconds>401", "gt": "C", "pred": "A", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_814", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "CC_791", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_1943", "pred_raw": "293,325", "gt": "229,238", "pred": "293,325", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_176", "pred_raw": "66,74", "gt": "62,75", "pred": "66,74", "offline": true, "pool_level": 0, "iou": 0.615}
+{"id": "PSS_32", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "3->4->1->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PSS_115", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "2->3->5->4->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_819", "pred_raw": "C>0\n\nThis is Video 2:", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_1736", "pred_raw": "163,173", "gt": "157,190", "pred": "163,173", "offline": true, "pool_level": 0, "iou": 0.303}
+{"id": "NC_948", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "FSA_314", "pred_raw": "122,124", "gt": "55,83", "pred": "122,124", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "CC_238", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_1606", "pred_raw": "93,102", "gt": "92,101", "pred": "93,102", "offline": true, "pool_level": 0, "iou": 0.8}
+{"id": "FSA_977", "pred_raw": "106,114", "gt": "108,122", "pred": "106,114", "offline": true, "pool_level": 0, "iou": 0.375}
+{"id": "NC_399", "pred_raw": "B>23.4 seconds>23.4 seconds>23.4 seconds>23.4 seconds>23.4 seconds>23.4 seconds>23.4 seconds>23.4 seconds>23.4 seconds>23.4 seconds>23.4 seconds>23.4 seconds>23.4 seconds>23.4 seconds>23.4 seconds>23.4", "gt": "C", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_584", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_2159", "pred_raw": "132,149", "gt": "95,150", "pred": "132,149", "offline": true, "pool_level": 0, "iou": 0.309}
+{"id": "FSA_31", "pred_raw": "44,51", "gt": "44,50", "pred": "44,51", "offline": true, "pool_level": 0, "iou": 0.857}
+{"id": "FSA_154", "pred_raw": "100,106", "gt": "101,105", "pred": "100,106", "offline": true, "pool_level": 0, "iou": 0.667}
+{"id": "CC_8", "pred_raw": "B", "gt": "D", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_326", "pred_raw": "484,538", "gt": "117,180", "pred": "484,538", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "NC_1171", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "CC_53", "pred_raw": "B<29.2>", "gt": "A", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PI_222", "pred_raw": "E", "gt": "E", "pred": "E", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_181", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "CC_489", "pred_raw": "D", "gt": "D", "pred": "D", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PEA_694", "pred_raw": "A\n\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1", "pred_raw": "76,82", "gt": "76,90", "pred": "76,82", "offline": true, "pool_level": 0, "iou": 0.429}
+{"id": "FSA_676", "pred_raw": "294,312", "gt": "299,311", "pred": "294,312", "offline": true, "pool_level": 0, "iou": 0.667}
+{"id": "CC_523", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "NC_53", "pred_raw": "B 41.0 seconds", "gt": "B", "pred": "B", "offline": true, "pool_level": 2, "correct": true}
+{"id": "PEA_696", "pred_raw": "C<42.2>42.2>", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "FSA_2041", "pred_raw": "102,117", "gt": "100,115", "pred": "102,117", "offline": true, "pool_level": 0, "iou": 0.765}
+{"id": "FSA_893", "pred_raw": "31,50", "gt": "16,25", "pred": "31,50", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PEA_223", "pred_raw": "A", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_650", "pred_raw": "155,180", "gt": "152,189", "pred": "155,180", "offline": true, "pool_level": 0, "iou": 0.676}
+{"id": "FSA_1678", "pred_raw": "152,164", "gt": "151,165", "pred": "152,164", "offline": true, "pool_level": 0, "iou": 0.857}
+{"id": "PSS_289", "pred_raw": "444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444", "gt": "3->5->2->6->1->4", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_46", "pred_raw": "A\n", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_1811", "pred_raw": "151,158", "gt": "152,159", "pred": "151,158", "offline": true, "pool_level": 0, "iou": 0.75}
+{"id": "NC_217", "pred_raw": "C>371.9 seconds>371.9 seconds>371.9 seconds>371.9 seconds>371.9 seconds>371.9 seconds>371.9 seconds>371.9 seconds>371.9 seconds>371.9 seconds>371.9 seconds>371.9 seconds>371.9 seconds>371", "gt": "C", "pred": "C", "offline": true, "pool_level": 2, "correct": true}
+{"id": "FSA_2145", "pred_raw": "185,226", "gt": "213,225", "pred": "185,226", "offline": true, "pool_level": 0, "iou": 0.293}
+{"id": "FSA_1353", "pred_raw": "196,205", "gt": "260,353", "pred": "196,205", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "PEA_323", "pred_raw": "A\n\n", "gt": "C", "pred": "A", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_209", "pred_raw": "A", "gt": "A", "pred": "A", "offline": true, "pool_level": 2, "correct": true}
+{"id": "NC_1187", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "NC_244", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "NC_260", "pred_raw": "B", "gt": "A", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_670", "pred_raw": "332,338", "gt": "287,304", "pred": "332,338", "offline": true, "pool_level": 0, "iou": 0.0}
+{"id": "FSA_2051", "pred_raw": "419,435", "gt": "400,445", "pred": "419,435", "offline": true, "pool_level": 0, "iou": 0.356}
+{"id": "NC_1079", "pred_raw": "B", "gt": "D", "pred": "B", "offline": true, "pool_level": 0, "correct": false}
+{"id": "FSA_1681", "pred_raw": "53,76", "gt": "52,85", "pred": "53,76", "offline": true, "pool_level": 0, "iou": 0.697}
+{"id": "PSS_509", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "3->5->4->2->1", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_55", "pred_raw": "B", "gt": "C", "pred": "B", "offline": true, "pool_level": 2, "correct": false}
+{"id": "CC_359", "pred_raw": "C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_246", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_424", "pred_raw": "C", "gt": "A", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "PEA_671", "pred_raw": "C", "gt": "B", "pred": "C", "offline": true, "pool_level": 2, "correct": false}
+{"id": "NC_204", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "CC_128", "pred_raw": "C", "gt": "C", "pred": "C", "offline": true, "pool_level": 0, "correct": true}
+{"id": "PSS_204", "pred_raw": "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "gt": "4->1->3->2", "pred": null, "offline": true, "pool_level": 2, "correct": false}
+{"type": "summary", "mc_pss_accuracy": {"correct": 190, "total": 529, "accuracy": 0.359}, "fsa_mean_iou": {"mean_iou": 0.435, "num_samples": 327}, "pool_level_counts": {"0": 481, "2": 375}}
